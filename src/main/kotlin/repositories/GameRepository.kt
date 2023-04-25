@@ -23,11 +23,11 @@ object GameRepository {
     }
 
     fun get() : List<Game> {
-        return emptyList() //TODO Implementar solucion para obtener todos los juegos
+        return games
     }
 
     fun getById(id: Long) : Game {
-        return games[0] //TODO Implementar solucion para obtener el juego solicitado
+        return games.first { it.id == id }
     }
 
 }
