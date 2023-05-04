@@ -30,4 +30,9 @@ object GameRepository {
         return games.first { it.id == id }
     }
 
+    fun getByName (name:String) : Game? {
+        return games.find { it.name == name }
+    }
+
+
 }

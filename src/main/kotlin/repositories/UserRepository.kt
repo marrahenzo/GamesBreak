@@ -1,6 +1,9 @@
 package repositories
 
+import data.Game
+import data.Purchase
 import data.User
+import java.util.Date
 
 object UserRepository {
 
@@ -11,13 +14,17 @@ object UserRepository {
         users.add(User(2802L, "AHOZ", "lock_password", "Aylen", "Hoz", 200.50, "2021/01/11"))
         users.add(User(1510L, "Diegote", "@12345", "Diego", "Gonzales", 12.0, "2018/04/15"))
         users.add(User(2772L, "marrahenzo", "pelado123", "Hernán", "Marrapodi", 420.69, "2023/04/25"))
+        users.add(User(2901L, "emaDev", "hulkVerde", "Emanuel", "Cisterna", 990.69, "2023/04/25"))
     }
 
-    fun login(): User? {
+    fun getById(userId:Long):User?{
+        return users.first { it.id == userId}
+    }
+    fun login(): User {
         var usuario: String?
         var password: String?
         var usuarioEncontrado: User?
-        var usuarioLogueado: User? = null
+        var usuarioLogueado: User? = null;
         println("-----INICIO DE SESIÓN-----")
         do {
             print("Ingrese el usuario: ")
