@@ -7,7 +7,7 @@ data class Game(
     val genre: String,
     val price: Double,
     val permalink: String
-){
+) {
     override fun toString(): String {
         return "Game(id=$id, name='$name', releaseDate='$releaseDate', genre='$genre', price=$price)"
     }

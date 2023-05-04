@@ -1,9 +1,7 @@
 package data
 
-import java.lang.reflect.Constructor
-
 data class Purchase(
-        val  id:Long,
+    val id: Long,
     val userId: Long,
     val gameId: Long,
     val amount: Double,

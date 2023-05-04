@@ -1,9 +1,6 @@
 package repositories
 
-import data.Game
-import data.Purchase
 import data.User
-import java.util.Date
 
 object UserRepository {
 
@@ -17,9 +14,10 @@ object UserRepository {
         users.add(User(2901L, "emaDev", "hulkVerde", "Emanuel", "Cisterna", 990.69, "2023/04/25"))
     }
 
-    fun getById(userId:Long):User?{
-        return users.first { it.id == userId}
+    fun getById(userId: Long): User? {
+        return users.first { it.id == userId }
     }
+
     fun login(): User {
         var usuario: String?
         var password: String?

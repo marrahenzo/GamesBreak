@@ -1,9 +1,6 @@
 package repositories
 
-import data.Game
 import data.Purchase
-import data.User
-import java.util.*
 
 object PurchaseRepository {
 
@@ -25,21 +22,24 @@ object PurchaseRepository {
     fun add(purchase: Purchase) {
         purchases.add(purchase)
     }
-    fun get() : List<Purchase> {
+
+    fun get(): List<Purchase> {
         return purchases
     }
-    fun mostrarTodasLasComprasDeUnUsuario (userId:Long):Unit{
+
+    fun mostrarTodasLasComprasDeUnUsuario(userId: Long): Unit {
         println("--Todas tus compras--")
-        var item:Int = 0
-        purchases.forEach{purchase ->
-            if(purchase.userId == userId){
+        var item: Int = 0
+        purchases.forEach { purchase ->
+            if (purchase.userId == userId) {
                 item++
                 var game = GameRepository.getById(purchase.gameId)
-                val cadena = "${item}) Juego: ${game.name}, importe: ${purchase.amount}, fecha: ${purchase.createdDate} "
+                val cadena =
+                    "${item}) Juego: ${game.name}, importe: ${purchase.amount}, fecha: ${purchase.createdDate} "
                 println(cadena)
             }
         }
-        if(item == 0){
+        if (item == 0) {
             println("Todavia no tenes ninguna compra realizada")
         }
     }
