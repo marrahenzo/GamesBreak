@@ -31,7 +31,7 @@ data class User(
     }
 
     override fun toString(): String {
-        return "nickName='$nickName', name='$name', surname='$surname', money=$money, createdDate='$createdDate'"
+        return "Usuario: $nickName, Nombre: $name, Apellido: $surname, Saldo: $money, Fecha de creación: $createdDate"
     }
 
 }
