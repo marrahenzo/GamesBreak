@@ -10,7 +10,7 @@ class EpicGames : Intermediario() {
         val hora1 = LocalTime.of(20, 0)
         val hora2 = LocalTime.of(23, 59)
         val ahora = LocalTime.now()
-        var comision: Double = 1.03
+        var comision = 1.03
         if (ahora.isAfter(hora1) && ahora.isBefore(hora2)) {
             comision = 1.01
         }
@@ -19,7 +19,7 @@ class EpicGames : Intermediario() {
         val importe: Double = game.price * comision
 
         if (user.money < importe) {
-            println("No tenens deinero suficiente para comprar el juego")
+            println("No tenés dinero suficiente para comprar el juego")
             return null
         }
         user.calcularCashback(importe)

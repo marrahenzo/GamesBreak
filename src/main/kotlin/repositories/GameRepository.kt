@@ -102,7 +102,7 @@ object GameRepository {
                 10L,
                 "GTA San Andreas",
                 "2004",
-                "Accion",
+                "Acción",
                 1800.00,
                 "https://media.vandal.net/m/3903/2005610224436_1.jpg"
             )
@@ -122,7 +122,7 @@ object GameRepository {
                 12L,
                 "Dark Souls 3",
                 "2016",
-                "Accion",
+                "Acción",
                 50.75,
                 "https://as.com/meristation/imagenes/2020/04/07/game_cover/136602131586253551.jpg"
             )

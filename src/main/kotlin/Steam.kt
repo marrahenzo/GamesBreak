@@ -10,7 +10,7 @@ class Steam : Intermediario() {
         val idRandom = random.nextLong()
 
         if (user.money < totalAPagar) {
-            println("No tenens deinero suficiente para comprar el juego")
+            println("No tenés dinero suficiente para comprar el juego")
             return null
         }
         user.calcularCashback(totalAPagar)

@@ -15,14 +15,14 @@ object UserRepository {
     }
 
     fun getById(userId: Long): User? {
-        return users.first { it.id == userId }
+        return users.firstOrNull() { it.id == userId }
     }
 
     fun login(): User {
         var usuario: String?
         var password: String?
         var usuarioEncontrado: User?
-        var usuarioLogueado: User? = null;
+        var usuarioLogueado: User? = null
         println("-----INICIO DE SESIÓN-----")
         do {
             print("Ingrese el usuario: ")

@@ -27,9 +27,9 @@ object PurchaseRepository {
         return purchases
     }
 
-    fun mostrarTodasLasComprasDeUnUsuario(userId: Long): Unit {
+    fun mostrarTodasLasComprasDeUnUsuario(userId: Long) {
         println("--Todas tus compras--")
-        var item: Int = 0
+        var item = 0
         purchases.forEach { purchase ->
             if (purchase.userId == userId) {
                 item++
@@ -40,7 +40,7 @@ object PurchaseRepository {
             }
         }
         if (item == 0) {
-            println("Todavia no tenes ninguna compra realizada")
+            println("Todavía no tenés ninguna compra realizada")
         }
     }
 

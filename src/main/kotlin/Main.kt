@@ -1,19 +1,16 @@
 import data.Game
 import data.User
-import repositories.Carrito
 import repositories.GameRepository
 import repositories.PurchaseRepository
 import repositories.UserRepository
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 fun main() {
     var usuarioEnSesion: User? = null
 
     fun mostrarOpcionesMenu() {
-        println("-----MENU TIENDA VIDEJUEGOS-----")
+        println("-----MENU TIENDA VIDEOJUEGOS-----")
         if (usuarioEnSesion == null) {
-            println("1 - Iniciar sesion")
+            println("1 - Iniciar sesión")
             println("2 - Ver listado de juegos disponibles")
             println("3 - salir")
             return
@@ -21,19 +18,19 @@ fun main() {
         println("1 - Ver datos de usuario")
         println("2 - Comprar juego")
         println("3 - Ver lista de compras")
-        println("4 - Cerrar sesion")
+        println("4 - Cerrar sesión")
         println("5 - Salir")
     }
 
-    fun selecionarUnIntermediario(): Intermediario? {
+    fun seleccionarUnIntermediario(): Intermediario? {
         println("Elige un intermediario para hacer la compra.")
         println("1 - Steam")
         println("2 - Epic Games")
         println("3 - Nakama")
-        var intermediarioSeleccionado: Boolean = false;
-        var opcion: String;
+        var intermediarioSeleccionado = false
+        var opcion: String
         do {
-            print("Ingrese una opcion: ")
+            print("Ingrese una opción: ")
             opcion = readln()
             when (opcion) {
                 "1" -> return Steam()
@@ -45,15 +42,15 @@ fun main() {
     }
 
     fun buscarUnJuego(): Game? {
-        var juegoEncontrado: Boolean = false
+        var juegoEncontrado = false
         var game: Game? = null
-        var nombreJuego: String = ""
+        var nombreJuego = ""
         do {
             print("Ingrese el nombre de un juego: ")
             nombreJuego = readln()
             game = GameRepository.getByName(nombreJuego)
             if (game == null) {
-                println("No se encontro un juego con ese nombre")
+                println("No se encontró un juego con ese nombre")
                 continue
             }
             juegoEncontrado = true
@@ -64,9 +61,9 @@ fun main() {
     fun iniciarMenu() {
         mostrarOpcionesMenu()
         var opcion: String
-        var salir: Boolean = false
+        var salir = false
         do {
-            print("Ingrese una opcion: ")
+            print("Ingrese una opción: ")
             opcion = readln()
 
             if (usuarioEnSesion == null) {
@@ -90,7 +87,7 @@ fun main() {
                         salir = true
                     }
 
-                    else -> println("Opcion invalida")
+                    else -> println("Opción invalida")
                 }
             } else {
                 when (opcion) {
@@ -103,11 +100,11 @@ fun main() {
 
                     "2" -> {
                         if (usuarioEnSesion == null) {
-                            println("Debes iniciar sesion")
+                            println("Debes iniciar sesión")
                             continue
                         }
                         println("-----Comprar un Juego-----")
-                        val intermediario = selecionarUnIntermediario()
+                        val intermediario = seleccionarUnIntermediario()
                         val juegoSeleccionado = buscarUnJuego()
                         if (juegoSeleccionado != null && intermediario != null) {
                             val compra = intermediario.comprar(juegoSeleccionado, usuarioEnSesion!!)
@@ -124,7 +121,7 @@ fun main() {
 
                     "3" -> {
                         if (usuarioEnSesion == null) {
-                            println("Debes iniciar sesion")
+                            println("Debes iniciar sesión")
                             continue
                         } else {
                             PurchaseRepository.mostrarTodasLasComprasDeUnUsuario(usuarioEnSesion!!.id)

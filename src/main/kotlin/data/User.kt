@@ -14,9 +14,9 @@ data class User(
     val createdDate: String
 ) {
     fun calcularCashback(importe: Double) {
-        var cashback: Double = 0.0;
+        var cashback = 0.0
 
-        val fechaStr = createdDate.toString()
+        val fechaStr = createdDate
         val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
         val antiguedad = LocalDate.parse(fechaStr, formatter)
 
