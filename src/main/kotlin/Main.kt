@@ -77,9 +77,11 @@ fun main() {
 
                     "2" -> {
                         val games = GameRepository.get()
+                        println("---------------------------------------------------------------")
                         games.forEach { game ->
                             println(game.toString())
                         }
+                        println("---------------------------------------------------------------")
                         mostrarOpcionesMenu()
                         continue
                     }
@@ -147,6 +149,7 @@ fun main() {
                 }
             }
         } while (!salir)
+        println("¡Adiós!")
     }
 
     iniciarMenu()
