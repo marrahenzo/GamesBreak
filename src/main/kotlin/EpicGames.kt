@@ -22,7 +22,7 @@ class EpicGames : Intermediario() {
             println("No tenés dinero suficiente para comprar el juego")
             return null
         }
-        user.calcularCashback(importe)
+        user.efectuarTransaccion(importe)
         return Purchase(idRandom, user.id, game.id, importe, mostrarDateComoCadena(Date()))
     }
 

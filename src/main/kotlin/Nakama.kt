@@ -20,7 +20,7 @@ class Nakama : Intermediario() {
             println("No tenés dinero suficiente para comprar el juego")
             return null
         }
-        user.calcularCashback(totalAPagar)
+        user.efectuarTransaccion(totalAPagar)
         return Purchase(idRandom, user.id, game.id, totalAPagar, mostrarDateComoCadena(Date()))
     }
 

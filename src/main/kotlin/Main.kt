@@ -47,6 +47,11 @@ fun main() {
         var game: Game? = null
         var nombreJuego = ""
         do {
+            println("-----------------------------")
+            for (game in GameRepository.get()) {
+                println(game.toString())
+            }
+            println("-----------------------------")
             print("Ingrese el nombre de un juego: ")
             nombreJuego = readln()
             game = GameRepository.getByName(nombreJuego)
@@ -57,6 +62,10 @@ fun main() {
             juegoEncontrado = true
         } while (!juegoEncontrado)
         return game
+    }
+
+    fun formatMonto(monto: Double?): String {
+        return String.format("%.2f", monto)
     }
 
     fun iniciarMenu() {
@@ -113,7 +122,16 @@ fun main() {
                             val compra = intermediario.comprar(juegoSeleccionado, usuarioEnSesion!!)
                             if (compra != null) {
                                 PurchaseRepository.add(compra)
-                                println("Juego comprado correctamente.")
+                                println("--------------------------------------")
+                                println("Compraste: ${compra?.gameId?.let { GameRepository.getById(it).name }}")
+                                println("Valor de la compra: $${formatMonto(compra?.amount)}")
+                                val cashback = usuarioEnSesion!!.calcularCashback(compra!!.amount)
+                                if (cashback != 0.0)
+                                    println(
+                                        "Obtuviste un cashback de $${formatMonto(compra.amount * cashback)}"
+                                    )
+                                println("Saldo actual: $${formatMonto(usuarioEnSesion?.money)}")
+                                println("--------------------------------------")
                             }
                         } else {
                             println("No se pudo comprar el juego")

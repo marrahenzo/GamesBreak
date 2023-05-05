@@ -1,6 +1,7 @@
 package repositories
 
 import data.Game
+import java.util.*
 
 object GameRepository {
 
@@ -148,6 +149,8 @@ object GameRepository {
     }
 
     fun getByName(name: String): Game? {
-        return games.find { it.name == name }
+        return games.find {
+            it.name.lowercase(Locale.getDefault()).trim() == name.lowercase(Locale.getDefault()).trim()
+        }
     }
 }

@@ -13,7 +13,7 @@ data class User(
     var money: Double,
     val createdDate: String
 ) {
-    fun calcularCashback(importe: Double) {
+    fun calcularCashback(importe: Double): Double {
         var cashback = 0.0
 
         val fechaStr = createdDate
@@ -26,6 +26,12 @@ data class User(
         } else if (periodo.months < 12) {
             cashback = 0.03
         }
+
+        return cashback
+    }
+
+    fun efectuarTransaccion(importe: Double) {
+        val cashback = this.calcularCashback(importe)
         this.money -= importe
         this.money += (importe * cashback)
     }
