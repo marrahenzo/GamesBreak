@@ -9,6 +9,6 @@ data class Game(
     val permalink: String
 ) {
     override fun toString(): String {
-        return "Game(id=$id, name='$name', releaseDate='$releaseDate', genre='$genre', price=$price)"
+        return "$name - $${String.format("%.2f", price)} - $genre - $releaseDate"
     }
 }
