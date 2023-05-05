@@ -8,11 +8,11 @@ fun main() {
     var usuarioEnSesion: User? = null
 
     fun mostrarOpcionesMenu() {
-        println("-----MENU TIENDA VIDEOJUEGOS-----")
+        println("-----BIENVENIDO A GAMESBREAK-----")
         if (usuarioEnSesion == null) {
             println("1 - Iniciar sesión")
             println("2 - Ver listado de juegos disponibles")
-            println("3 - salir")
+            println("3 - Salir")
             return
         }
         println("1 - Ver datos de usuario")
@@ -36,6 +36,7 @@ fun main() {
                 "1" -> return Steam()
                 "2" -> return EpicGames()
                 "3" -> return Nakama()
+                else -> println("Opción inválida")
             }
         } while (!intermediarioSeleccionado)
         return null
@@ -87,7 +88,7 @@ fun main() {
                         salir = true
                     }
 
-                    else -> println("Opción invalida")
+                    else -> println("Opción inválida")
                 }
             } else {
                 when (opcion) {
@@ -100,7 +101,7 @@ fun main() {
 
                     "2" -> {
                         if (usuarioEnSesion == null) {
-                            println("Debes iniciar sesión")
+                            println("Debés iniciar sesión")
                             continue
                         }
                         println("-----Comprar un Juego-----")
@@ -141,13 +142,13 @@ fun main() {
                     }
 
                     else -> {
-                        println("no es valida")
+                        println("Opción inválida")
                     }
                 }
             }
         } while (!salir)
     }
-    iniciarMenu()
 
+    iniciarMenu()
 }
 
