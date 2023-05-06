@@ -1,6 +1,7 @@
 import data.Game
 import data.Purchase
 import data.User
+import exceptions.SaldoInsuficienteException
 import repositories.PurchaseRepository
 import java.util.*
 
