@@ -1,7 +1,9 @@
 package repositories
 
 import data.Game
+import exceptions.JuegoInexistenteException
 import java.util.*
+import kotlin.NoSuchElementException
 
 object GameRepository {
 
@@ -215,7 +217,11 @@ object GameRepository {
     }
 
     fun getById(id: Long): Game {
-        return games.first { it.id == id }
+        try {
+            return games.first { it.id == id }
+        } catch (e: NoSuchElementException) {
+            throw JuegoInexistenteException("El juego con id $id no existe")
+        }
     }
 
     fun getByName(name: String): Game? {
