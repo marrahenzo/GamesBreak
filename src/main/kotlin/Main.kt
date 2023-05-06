@@ -54,8 +54,9 @@ fun main() {
                 println(game.toString())
             }
             println("-----------------------------")
-            print("Ingrese el nombre de un juego: ")
+            print("Ingrese el nombre de un juego (Ingrese 0 para cancelar): ")
             nombreJuego = readln()
+            if (nombreJuego == "0") return null
             juego = GameRepository.getByName(nombreJuego)
             if (juego == null) {
                 println("No se encontró un juego con ese nombre")
@@ -67,10 +68,10 @@ fun main() {
     }
 
     fun iniciarMenu() {
-        mostrarOpcionesMenu()
         var opcion: String
         var salir = false
         do {
+            mostrarOpcionesMenu()
             print("Ingrese una opción: ")
             opcion = readln()
 
@@ -78,7 +79,6 @@ fun main() {
                 when (opcion) {
                     "1" -> {
                         usuarioEnSesion = UserRepository.login()
-                        mostrarOpcionesMenu()
                         continue
                     }
 
@@ -89,7 +89,6 @@ fun main() {
                             println(game.toString())
                         }
                         println("---------------------------------------------------------------")
-                        mostrarOpcionesMenu()
                         continue
                     }
 
@@ -104,16 +103,15 @@ fun main() {
                     "1" -> {
                         val user = UserRepository.getById(usuarioEnSesion!!.id)
                         println(user.toString())
-                        mostrarOpcionesMenu()
                         continue
                     }
 
                     "2" -> {
                         println("-----Comprar un Juego-----")
                         val intermediario = seleccionarUnIntermediario()
-                        val juegoSeleccionado = buscarUnJuego()
+                        val juegoSeleccionado = buscarUnJuego() ?: continue
                         var compra: Purchase? = null
-                        if (juegoSeleccionado != null && intermediario != null) {
+                        if (intermediario != null) {
                             try {
                                 compra = intermediario.comprar(juegoSeleccionado, usuarioEnSesion!!)
                             } catch (e: SaldoInsuficienteException) {
@@ -135,19 +133,16 @@ fun main() {
                         } else {
                             println("No se pudo comprar el juego")
                         }
-                        mostrarOpcionesMenu()
                         continue
                     }
 
                     "3" -> {
                         PurchaseRepository.mostrarTodasLasComprasDeUnUsuario(usuarioEnSesion!!.id)
-                        mostrarOpcionesMenu()
                         continue
                     }
 
                     "4" -> {
                         usuarioEnSesion = null
-                        mostrarOpcionesMenu()
                         continue
                     }
 
