@@ -1,20 +1,21 @@
 import data.Game
 import data.Purchase
 import data.User
+import repositories.PurchaseRepository
 import java.util.*
 
 class Steam : Intermediario() {
-    override fun comprar(game: Game, user: User): Purchase? {
-        var totalAPagar: Double = game.price * 1.02
-        val random = Random()
-        val idRandom = random.nextLong()
+    override fun comprar(game: Game, user: User): Purchase {
+        val comision = 1.02
+        val totalAPagar: Double = game.price.times(comision)
+        val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
 
         if (user.money < totalAPagar) {
-            println("No tenés dinero suficiente para comprar el juego")
-            return null
+            throw SaldoInsuficienteException("Saldo de ${user.money} insuficiente para pagar $totalAPagar")
         }
+
         user.efectuarTransaccion(totalAPagar)
-        return Purchase(idRandom, user.id, game.id, totalAPagar, mostrarDateComoCadena(Date()))
+        return Purchase(idCompra, user.id, game.id, totalAPagar, Utils.mostrarDateComoCadena(Date()))
     }
 
 }

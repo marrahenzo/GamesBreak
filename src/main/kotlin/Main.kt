@@ -1,4 +1,5 @@
 import data.Game
+import data.Purchase
 import data.User
 import repositories.GameRepository
 import repositories.PurchaseRepository
@@ -27,7 +28,7 @@ fun main() {
         println("1 - Steam")
         println("2 - Epic Games")
         println("3 - Nakama")
-        var intermediarioSeleccionado = false
+        val intermediarioSeleccionado = false
         var opcion: String
         do {
             print("Ingrese una opción: ")
@@ -44,8 +45,8 @@ fun main() {
 
     fun buscarUnJuego(): Game? {
         var juegoEncontrado = false
-        var game: Game? = null
-        var nombreJuego = ""
+        var juego: Game?
+        var nombreJuego: String
         do {
             println("-----------------------------")
             for (game in GameRepository.get()) {
@@ -54,18 +55,14 @@ fun main() {
             println("-----------------------------")
             print("Ingrese el nombre de un juego: ")
             nombreJuego = readln()
-            game = GameRepository.getByName(nombreJuego)
-            if (game == null) {
+            juego = GameRepository.getByName(nombreJuego)
+            if (juego == null) {
                 println("No se encontró un juego con ese nombre")
                 continue
             }
             juegoEncontrado = true
         } while (!juegoEncontrado)
-        return game
-    }
-
-    fun formatMonto(monto: Double?): String {
-        return String.format("%.2f", monto)
+        return juego
     }
 
     fun iniciarMenu() {
@@ -111,26 +108,27 @@ fun main() {
                     }
 
                     "2" -> {
-                        if (usuarioEnSesion == null) {
-                            println("Debés iniciar sesión")
-                            continue
-                        }
                         println("-----Comprar un Juego-----")
                         val intermediario = seleccionarUnIntermediario()
                         val juegoSeleccionado = buscarUnJuego()
+                        var compra: Purchase? = null
                         if (juegoSeleccionado != null && intermediario != null) {
-                            val compra = intermediario.comprar(juegoSeleccionado, usuarioEnSesion!!)
+                            try {
+                                compra = intermediario.comprar(juegoSeleccionado, usuarioEnSesion!!)
+                            } catch (e: SaldoInsuficienteException) {
+                                println("El saldo actual es insuficiente")
+                            }
                             if (compra != null) {
                                 PurchaseRepository.add(compra)
                                 println("--------------------------------------")
-                                println("Compraste: ${compra?.gameId?.let { GameRepository.getById(it).name }}")
-                                println("Valor de la compra: $${formatMonto(compra?.amount)}")
-                                val cashback = usuarioEnSesion!!.calcularCashback(compra!!.amount)
+                                println("Compraste: ${GameRepository.getById(compra.gameId).name}")
+                                println("Valor de la compra: $${Utils.formatMonto(compra.amount)}")
+                                val cashback = usuarioEnSesion!!.calcularCashback()
                                 if (cashback != 0.0)
                                     println(
-                                        "Obtuviste un cashback de $${formatMonto(compra.amount * cashback)}"
+                                        "Obtuviste un cashback de $${Utils.formatMonto(compra.amount.times(cashback))}"
                                     )
-                                println("Saldo actual: $${formatMonto(usuarioEnSesion?.money)}")
+                                println("Saldo actual: $${Utils.formatMonto(usuarioEnSesion?.money)}")
                                 println("--------------------------------------")
                             }
                         } else {
@@ -141,12 +139,7 @@ fun main() {
                     }
 
                     "3" -> {
-                        if (usuarioEnSesion == null) {
-                            println("Debes iniciar sesión")
-                            continue
-                        } else {
-                            PurchaseRepository.mostrarTodasLasComprasDeUnUsuario(usuarioEnSesion!!.id)
-                        }
+                        PurchaseRepository.mostrarTodasLasComprasDeUnUsuario(usuarioEnSesion!!.id)
                         mostrarOpcionesMenu()
                         continue
                     }

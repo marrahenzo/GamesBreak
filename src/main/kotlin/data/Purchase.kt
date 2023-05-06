@@ -6,10 +6,4 @@ data class Purchase(
     val gameId: Long,
     val amount: Double,
     val createdDate: String,
-)/*{
-    companion object {
-        var lastId:Long = 0
-            private set
-    }
-    val id:Long =  ++lastId
-}*/
+)

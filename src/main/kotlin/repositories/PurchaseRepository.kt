@@ -33,9 +33,9 @@ object PurchaseRepository {
         purchases.forEach { purchase ->
             if (purchase.userId == userId) {
                 item++
-                var game = GameRepository.getById(purchase.gameId)
+                val game = GameRepository.getById(purchase.gameId)
                 val cadena =
-                    "${item}) Juego: ${game.name}, importe: ${purchase.amount}, fecha: ${purchase.createdDate} "
+                    "${item}) Juego: ${game.name}, importe: $${Utils.formatMonto(purchase.amount)}, fecha: ${purchase.createdDate} "
                 println(cadena)
             }
         }
@@ -44,4 +44,7 @@ object PurchaseRepository {
         }
     }
 
+    fun obtenerUltimoId(): Long {
+        return purchases.maxBy { it.id }.id
+    }
 }

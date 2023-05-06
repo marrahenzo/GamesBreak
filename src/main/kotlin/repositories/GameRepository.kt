@@ -138,6 +138,76 @@ object GameRepository {
                 "https://assets-prd.ignimgs.com/2022/07/25/9781506733494-1658716557072.jpg"
             )
         )
+        games.add(
+            Game(
+                14L,
+                "Kingdom Hearts 2",
+                "2005",
+                "RPG",
+                150.00,
+                "https://cdn.mobygames.com/covers/6198391-kingdom-hearts-ii-playstation-2-front-cover.jpg"
+            )
+        )
+        games.add(
+            Game(
+                15L,
+                "Bloodborne",
+                "2015",
+                "Acción",
+                10.00,
+                "https://cdn.mobygames.com/covers/3620172-bloodborne-playstation-4-other.jpg"
+            )
+        )
+        games.add(
+            Game(
+                16L,
+                "Sekiro Shadows Die Twice",
+                "2019",
+                "Acción",
+                20.00,
+                "https://cdn.mobygames.com/covers/8507229-sekiro-shadows-die-twice-xbox-one-front-cover.jpg"
+            )
+        )
+        games.add(
+            Game(
+                17L,
+                "Elden Ring",
+                "2022",
+                "Acción",
+                30.00,
+                "https://cdn.mobygames.com/covers/10371758-elden-ring-xbox-one-front-cover.jpg"
+            )
+        )
+        games.add(
+            Game(
+                18L,
+                "Shadow of the Colossus",
+                "2005",
+                "Aventura",
+                40.00,
+                "https://cdn.mobygames.com/covers/4317156-shadow-of-the-colossus-playstation-2-front-cover.jpg"
+            )
+        )
+        games.add(
+            Game(
+                19L,
+                "Persona 5 Royal",
+                "2020",
+                "JRPG",
+                50.00,
+                "https://cdn.mobygames.com/covers/8842019-persona-5-royal-playstation-4-front-cover.jpg"
+            )
+        )
+        games.add(
+            Game(
+                20L,
+                "Portal 2",
+                "2011",
+                "Puzzle",
+                60.00,
+                "https://cdn.mobygames.com/covers/6296552-portal-2-windows-front-cover.jpg"
+            )
+        )
     }
 
     fun get(): List<Game> {
