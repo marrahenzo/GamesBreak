@@ -61,7 +61,7 @@ fun main() {
             try {
                 juego = GameRepository.getById(idjuego)
             } catch (e: JuegoInexistenteException) {
-                println("No se encontró un juego con ese nombre")
+                println("No se encontró un juego con ese código")
                 continue
             }
             juegoEncontrado = true
