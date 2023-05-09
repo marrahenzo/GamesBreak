@@ -27,19 +27,15 @@ object UserRepository {
         do {
             print("Ingrese el usuario: ")
             usuario = readln()
-            usuarioEncontrado = users.firstOrNull { it.nickName == usuario }
-            if (usuarioEncontrado == null) {
-                println("Usuario no encontrado")
-                continue
-            }
-
             print("Ingrese la contraseña: ")
             password = readln()
-            if (usuarioEncontrado.password == password) {
+
+            usuarioEncontrado = users.firstOrNull { it.nickName == usuario }
+            if (usuarioEncontrado?.password == password) {
                 println("Usuario logueado correctamente.")
                 usuarioLogueado = usuarioEncontrado
             } else
-                println("Contraseña incorrecta.")
+                println("Nombre de usuario o contraseña incorrecta.")
         } while (usuarioLogueado == null)
         return usuarioLogueado
     }

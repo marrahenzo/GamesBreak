@@ -20,10 +20,10 @@ data class User(
         val formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd")
         val antiguedad = LocalDate.parse(fechaStr, formatter)
 
-        val periodo = Period.between(antiguedad, LocalDate.now())
-        if (periodo.months <= 3) {
+        val periodoMeses = Period.between(antiguedad, LocalDate.now()).toTotalMonths()
+        if (periodoMeses <= 3) {
             cashback = 0.05
-        } else if (periodo.months < 12) {
+        } else if (periodoMeses < 12) {
             cashback = 0.03
         }
 
@@ -32,7 +32,7 @@ data class User(
 
     fun efectuarTransaccion(importe: Double) {
         val cashback = this.calcularCashback()
-        this.money = this.money.plus(importe)
+        this.money = this.money.minus(importe)
         this.money = this.money.plus((importe.times(cashback)))
     }
 

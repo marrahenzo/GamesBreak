@@ -163,7 +163,7 @@ object GameRepository {
         games.add(
             Game(
                 16L,
-                "Sekiro Shadows Die Twice",
+                "Sekiro: Shadows Die Twice",
                 "2019",
                 "Acción",
                 20.00,
@@ -221,12 +221,6 @@ object GameRepository {
             return games.first { it.id == id }
         } catch (e: NoSuchElementException) {
             throw JuegoInexistenteException("El juego con id $id no existe")
-        }
-    }
-
-    fun getByName(name: String): Game? {
-        return games.find {
-            it.name.lowercase(Locale.getDefault()).trim() == name.lowercase(Locale.getDefault()).trim()
         }
     }
 }

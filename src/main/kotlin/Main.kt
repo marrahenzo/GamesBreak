@@ -1,6 +1,7 @@
 import data.Game
 import data.Purchase
 import data.User
+import exceptions.JuegoInexistenteException
 import exceptions.SaldoInsuficienteException
 import repositories.GameRepository
 import repositories.PurchaseRepository
@@ -46,19 +47,20 @@ fun main() {
 
     fun buscarUnJuego(): Game? {
         var juegoEncontrado = false
-        var juego: Game?
-        var nombreJuego: String
+        var juego: Game? = null
+        var idjuego: Long
         do {
             println("-----------------------------")
             for (game in GameRepository.get()) {
                 println(game.toString())
             }
             println("-----------------------------")
-            print("Ingrese el nombre de un juego (Ingrese 0 para cancelar): ")
-            nombreJuego = readln()
-            if (nombreJuego == "0") return null
-            juego = GameRepository.getByName(nombreJuego)
-            if (juego == null) {
+            print("Ingrese el código de un juego (Ingrese 0 para cancelar): ")
+            idjuego = readln().toLong()
+            if (idjuego == 0L) return null
+            try {
+                juego = GameRepository.getById(idjuego)
+            } catch (e: JuegoInexistenteException) {
                 println("No se encontró un juego con ese nombre")
                 continue
             }
