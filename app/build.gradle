@@ -7,8 +7,8 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.gamestoreapp"
-        minSdk 21
+        applicationId "com.teamanotador.gamesbreak"
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
