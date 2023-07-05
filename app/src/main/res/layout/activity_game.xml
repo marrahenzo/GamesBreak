@@ -179,9 +179,12 @@
 
                 <Button
                     android:id="@+id/botonComprar"
+                    style="@android:style/Widget.Material.Button"
                     android:layout_width="155dp"
                     android:layout_height="55dp"
                     android:text="Comprar"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/precioJuego"
                     app:layout_constraintEnd_toEndOf="@+id/descripcionJuego"
                     app:layout_constraintTop_toTopOf="@+id/precioJuego" />
