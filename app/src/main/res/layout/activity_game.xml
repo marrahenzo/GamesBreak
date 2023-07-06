@@ -79,7 +79,7 @@
 
 
                 <TextView
-                    android:id="@+id/nombreJuego"
+                    android:id="@+id/tv_main_generos"
                     android:layout_width="215dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -97,9 +97,9 @@
                     android:id="@+id/imageView"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/nombreJuego"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_main_generos"
                     app:layout_constraintEnd_toStartOf="@+id/calificacion"
-                    app:layout_constraintTop_toTopOf="@+id/nombreJuego"
+                    app:layout_constraintTop_toTopOf="@+id/tv_main_generos"
                     app:srcCompat="@drawable/ic_star" />
 
                 <TextView
@@ -123,8 +123,8 @@
                     android:text="Genero"
                     android:textColor="@color/white2"
                     android:textSize="14dp"
-                    app:layout_constraintStart_toStartOf="@+id/nombreJuego"
-                    app:layout_constraintTop_toBottomOf="@+id/nombreJuego" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_main_generos"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_main_generos" />
 
                 <TextView
                     android:id="@+id/textView17"

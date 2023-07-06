@@ -4,7 +4,7 @@ import data.Game
 import data.Purchase
 import data.User
 import exceptions.SaldoInsuficienteException
-import repositories.PurchaseRepository
+import com.teamanotador.gamesbreak.repositories.PurchaseRepository
 import java.time.LocalTime
 import java.util.*
 

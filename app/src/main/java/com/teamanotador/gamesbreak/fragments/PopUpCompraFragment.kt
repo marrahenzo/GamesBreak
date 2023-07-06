@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.teamanotador.gamesbreak.R
-import repositories.GameRepository
+import com.teamanotador.gamesbreak.repositories.GameRepository
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"

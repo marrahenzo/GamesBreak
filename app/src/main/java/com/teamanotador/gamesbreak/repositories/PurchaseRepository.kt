@@ -1,4 +1,4 @@
-package repositories
+package com.teamanotador.gamesbreak.repositories
 
 import com.teamanotador.gamesbreak.Utils
 import data.Purchase

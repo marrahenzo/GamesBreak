@@ -1,14 +1,13 @@
 package com.teamanotador.gamesbreak
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.fragments.PopUpCompra
-import repositories.GameRepository
+import com.teamanotador.gamesbreak.repositories.GameRepository
 
 class GameActivity : AppCompatActivity() {
 
@@ -19,12 +18,12 @@ class GameActivity : AppCompatActivity() {
         renderizarInfoJuego(gameId)
         val buttonCompra = findViewById<Button>(R.id.botonComprar);
 
-        buttonCompra.setOnClickListener{mostrarPopUp(gameId)}
+        buttonCompra.setOnClickListener { mostrarPopUp(gameId) }
     }
 
-    private fun renderizarInfoJuego(gameId: Long):Unit{
+    private fun renderizarInfoJuego(gameId: Long): Unit {
         val game = GameRepository.getById(gameId)
-        val titulo = findViewById<TextView>(R.id.nombreJuego)
+        val titulo = findViewById<TextView>(R.id.tv_main_generos)
         val portada = findViewById<ImageView>(R.id.portadaJuego)
         val genero = findViewById<TextView>(R.id.generoJuego)
         val descripcion = findViewById<TextView>(R.id.descripcionJuego)
@@ -36,7 +35,7 @@ class GameActivity : AppCompatActivity() {
         Glide.with(portada.context).load(game.permalink).into(portada)
     }
 
-    private fun mostrarPopUp(gameId:Long) {
+    private fun mostrarPopUp(gameId: Long) {
         val bundle = Bundle()
         bundle.putLong("gameId", gameId);
         val popUp = PopUpCompra()

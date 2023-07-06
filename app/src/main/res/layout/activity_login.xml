@@ -6,4 +6,69 @@
     android:layout_height="match_parent"
     tools:context="com.teamanotador.gamesbreak.LoginActivity">
 
+    <TextView
+        android:id="@+id/tv_nombre_app"
+        android:layout_width="169dp"
+        android:layout_height="36dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/login_texto_bienvenido"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134" />
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="111dp"
+        android:layout_height="54dp"
+        android:background="@drawable/login_button"
+        android:text="@string/login_boton"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
+
+<!--    <item >-->
+<!--        <shape android:shape="rectangle"  >-->
+<!--            <corners android:radius="3dip" />-->
+<!--            <stroke android:width="1dip" android:color="#5e7974" />-->
+<!--            <gradient android:angle="-90" android:startColor="#8dbab3" android:endColor="#58857e" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+    <EditText
+        android:id="@+id/et_login_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/login_usuario_placeholder"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.335" />
+
+    <EditText
+        android:id="@+id/et_login_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/login_contrasena_placeholder"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.427" />
 </androidx.constraintlayout.widget.ConstraintLayout>
