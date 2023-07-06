@@ -11,7 +11,8 @@ data class User(
     val name: String,
     val surname: String,
     var money: Double,
-    val createdDate: String
+    val createdDate: String,
+    val profilePicture: String
 ) {
     fun calcularCashback(): Double {
         var cashback = 0.0
