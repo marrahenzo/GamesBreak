@@ -5,7 +5,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import com.teamanotador.gamesbreak.fragments.PopUpCompra
 import com.teamanotador.gamesbreak.repositories.GameRepository
 
@@ -32,7 +32,11 @@ class GameActivity : AppCompatActivity() {
         titulo.setText(game.name)
         genero.setText(game.genre)
         precio.setText(game.getPriceFormateado())
-        Glide.with(portada.context).load(game.permalink).into(portada)
+        Picasso.get()
+            .load(game.permalink)
+            .placeholder(R.drawable.user)
+            .error(R.drawable.user)
+            .into(portada)
     }
 
     private fun mostrarPopUp(gameId: Long) {
