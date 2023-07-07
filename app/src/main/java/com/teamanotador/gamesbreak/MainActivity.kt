@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         tv_main_usuario.text = usuario?.name
         Picasso.get()
             .load(usuario?.profilePicture)
-            .placeholder(R.drawable.user)
-            .error(R.drawable.user)
+            .placeholder(R.drawable.user_placeholder)
+            .error(R.drawable.user_placeholder)
             .into(iv_main_profile)
     }
 

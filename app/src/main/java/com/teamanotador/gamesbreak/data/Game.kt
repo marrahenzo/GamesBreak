@@ -1,13 +1,14 @@
 package data
 
+import com.teamanotador.gamesbreak.enumerador.Genero
 import java.text.NumberFormat
-import java.util.*
+import java.util.Locale
 
 data class Game(
     val id: Long,
     val name: String,
     val releaseDate: String,
-    val genre: String,
+    val genre: Genero,
     val price: Double,
     val permalink: String
 ) {
@@ -15,7 +16,7 @@ data class Game(
         return "$id - $name - $${String.format("%.2f", price)} - $genre - $releaseDate"
     }
 
-     fun getPriceFormateado(): String {
+    fun getPriceFormateado(): String {
         val numberFormat = NumberFormat.getCurrencyInstance(Locale("es", "AR"))
         numberFormat.minimumFractionDigits = 2
         numberFormat.maximumFractionDigits = 2

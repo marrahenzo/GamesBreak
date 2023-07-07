@@ -29,13 +29,13 @@ class GameActivity : AppCompatActivity() {
         val descripcion = findViewById<TextView>(R.id.descripcionJuego)
         val precio = findViewById<TextView>(R.id.precioJuego)
 
-        titulo.setText(game.name)
-        genero.setText(game.genre)
-        precio.setText(game.getPriceFormateado())
+        titulo.text = game.name
+        genero.text = game.genre.nombre
+        precio.text = game.getPriceFormateado()
         Picasso.get()
             .load(game.permalink)
-            .placeholder(R.drawable.user)
-            .error(R.drawable.user)
+            .placeholder(R.drawable.user_placeholder)
+            .error(R.drawable.user_placeholder)
             .into(portada)
     }
 

@@ -18,10 +18,12 @@ class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun render(gameModel: Game, onClickListener: (Game) -> Unit) {
         game.text = gameModel.name
-        genre.text = gameModel.genre
+        genre.text = gameModel.genre.nombre
 
         Picasso.get()
             .load(gameModel.permalink)
+            .placeholder(R.drawable.game_placeholder)
+            .error(R.drawable.game_placeholder)
             .into(image)
 
         navButton.setOnClickListener { onClickListener(gameModel) }
