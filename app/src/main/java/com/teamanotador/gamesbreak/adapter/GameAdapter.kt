@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.teamanotador.gamesbreak.R
-import data.Game
+import com.teamanotador.gamesbreak.data.Game
 
-class GameAdapter(private val gamesList: List<Game>, private val onClickListener:(Game) -> Unit ): RecyclerView.Adapter<GameViewHolder>() {
+class GameAdapter(private val gamesList: List<Game>, private val onClickListener: (Game) -> Unit) :
+    RecyclerView.Adapter<GameViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -14,7 +15,7 @@ class GameAdapter(private val gamesList: List<Game>, private val onClickListener
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
-        holder.render( gamesList[position], onClickListener)
+        holder.render(gamesList[position], onClickListener)
     }
 
     override fun getItemCount(): Int {

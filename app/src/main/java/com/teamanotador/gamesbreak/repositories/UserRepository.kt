@@ -67,6 +67,18 @@ object UserRepository {
                 "https://avatars.githubusercontent.com/u/101511719?v=4"
             )
         )
+        users.add(
+            User(
+                1234L,
+                "lucho",
+                "123456789",
+                "Luciano",
+                "Ferreiros",
+                20000.50,
+                "2023/07/07",
+                "https://images.pexels.com/photos/16808856/pexels-photo-16808856/free-photo-of-dark-photo-of-a-mans-head.jpeg"
+            )
+        )
     }
 
     fun getUsers(): List<User> {

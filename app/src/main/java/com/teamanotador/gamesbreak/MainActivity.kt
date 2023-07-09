@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.teamanotador.gamesbreak.adapter.GameAdapter
 import com.teamanotador.gamesbreak.adapter.GenreAdapter
+import com.teamanotador.gamesbreak.data.Game
 import com.teamanotador.gamesbreak.repositories.GameRepository
 import com.teamanotador.gamesbreak.repositories.GenreRepository
 import com.teamanotador.gamesbreak.repositories.UserRepository
-import data.Game
 import data.User
 
 class MainActivity : AppCompatActivity() {
@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         tv_main_usuario = findViewById(R.id.tv_main_usuario)
         iv_main_profile = findViewById(R.id.iv_main_profile)
 
-        var idUsuario = intent.getLongExtra("idUsuario", 0)
-        var usuario: User? = UserRepository.getById(idUsuario)
+        val idUsuario = intent.getLongExtra("idUsuario", 0)
+        val usuario: User? = UserRepository.getById(idUsuario)
         tv_main_usuario.text = usuario?.name
         Picasso.get()
             .load(usuario?.profilePicture)
