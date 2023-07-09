@@ -25,7 +25,7 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Seleccione un intemediario"
+                android:text="@string/compra_intermediario"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/radioGroup"
@@ -47,29 +47,30 @@
                     android:id="@+id/radioButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" Steam"
+                    android:text="@string/compra_steam"
                     android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" Epic Games"
+                    android:text="@string/compra_epic"
                     android:textColor="@color/white" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" nakama"
+                    android:text="@string/compra_nakama"
                     android:textColor="@color/white" />
             </RadioGroup>
+
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Resumen de Compra"
+                android:text="@string/compra_resumen"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -83,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Subtotal"
+                android:text="@string/compra_subtotal"
                 android:textColor="@color/white"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -95,10 +96,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Descuento"
-                android:textStyle="bold"
+                android:text="@string/compra_descuento"
                 android:textColor="@color/white"
                 android:textSize="16dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -107,10 +108,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Recargo"
-                android:textStyle="bold"
+                android:text="@string/compra_recargo"
                 android:textColor="@color/white"
                 android:textSize="16dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
@@ -119,10 +120,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Total"
-                android:textStyle="bold"
+                android:text="@string/compra_total"
                 android:textColor="@color/white"
                 android:textSize="16dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -171,7 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
-                android:text="Confirmar compra"
+                android:text="@string/compra_confirmar"
                 app:layout_constraintTop_toBottomOf="@+id/textView12"
                 tools:layout_editor_absoluteX="0dp" />
 

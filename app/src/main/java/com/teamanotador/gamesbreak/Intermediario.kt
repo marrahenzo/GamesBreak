@@ -1,10 +1,10 @@
 package com.teamanotador.gamesbreak
 
 import com.teamanotador.gamesbreak.data.Game
-import data.Purchase
-import data.User
+import com.teamanotador.gamesbreak.data.Purchase
+import com.teamanotador.gamesbreak.data.User
 
-abstract class Intermediario {
+interface Intermediario {
 
-    abstract fun comprar(game: Game, user: User): Purchase?
+    fun comprar(game: Game, user: User): Purchase?
 }

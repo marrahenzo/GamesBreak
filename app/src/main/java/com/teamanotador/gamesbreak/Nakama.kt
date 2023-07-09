@@ -1,17 +1,17 @@
 package com.teamanotador.gamesbreak
 
 import com.teamanotador.gamesbreak.data.Game
+import com.teamanotador.gamesbreak.data.Purchase
+import com.teamanotador.gamesbreak.data.User
+import com.teamanotador.gamesbreak.exceptions.SaldoInsuficienteException
 import com.teamanotador.gamesbreak.repositories.PurchaseRepository
-import data.Purchase
-import data.User
-import exceptions.SaldoInsuficienteException
 import java.time.LocalDate
 import java.util.Date
 
 const val SABADO = "SATURDAY"
 const val DOMINGO = "SUNDAY"
 
-class Nakama : Intermediario() {
+class Nakama : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
         val fechaActual: LocalDate = LocalDate.now()
         val comision =

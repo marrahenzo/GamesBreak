@@ -1,4 +1,4 @@
-package data
+package com.teamanotador.gamesbreak.data
 
 import java.time.LocalDate
 import java.time.Period
@@ -14,7 +14,7 @@ data class User(
     val createdDate: String,
     val profilePicture: String
 ) {
-    fun calcularCashback(): Double {
+    private fun calcularCashback(): Double {
         var cashback = 0.0
 
         val fechaStr = createdDate

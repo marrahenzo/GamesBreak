@@ -2,7 +2,7 @@ package com.teamanotador.gamesbreak.repositories
 
 import com.teamanotador.gamesbreak.data.Game
 import com.teamanotador.gamesbreak.enumerador.Genero
-import exceptions.JuegoInexistenteException
+import com.teamanotador.gamesbreak.exceptions.JuegoInexistenteException
 
 object GameRepository {
 

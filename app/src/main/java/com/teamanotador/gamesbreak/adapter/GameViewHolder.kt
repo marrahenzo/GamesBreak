@@ -11,11 +11,11 @@ import com.teamanotador.gamesbreak.data.Game
 
 class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    val game = view.findViewById<TextView>(R.id.name)
-    val genre = view.findViewById<TextView>(R.id.genre)
-    val image = view.findViewById<ImageView>(R.id.image)
-    val navButton = view.findViewById<Button>(R.id.button_navigator)
-    val rating = view.findViewById<TextView>(R.id.tv_game_calificacion)
+    private val game: TextView = view.findViewById(R.id.name)
+    private val genre: TextView = view.findViewById(R.id.genre)
+    private val image: ImageView = view.findViewById(R.id.image)
+    private val navButton: Button = view.findViewById(R.id.button_navigator)
+    private val rating: TextView = view.findViewById(R.id.tv_game_calificacion)
 
     fun render(gameModel: Game, onClickListener: (Game) -> Unit) {
         game.text = gameModel.name

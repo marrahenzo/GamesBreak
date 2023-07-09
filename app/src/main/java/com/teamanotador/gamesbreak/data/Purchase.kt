@@ -1,4 +1,4 @@
-package data
+package com.teamanotador.gamesbreak.data
 
 data class Purchase(
     val id: Long,

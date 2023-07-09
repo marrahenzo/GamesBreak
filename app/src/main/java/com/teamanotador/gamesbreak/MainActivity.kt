@@ -11,37 +11,37 @@ import com.squareup.picasso.Picasso
 import com.teamanotador.gamesbreak.adapter.GameAdapter
 import com.teamanotador.gamesbreak.adapter.GenreAdapter
 import com.teamanotador.gamesbreak.data.Game
+import com.teamanotador.gamesbreak.data.User
 import com.teamanotador.gamesbreak.repositories.GameRepository
 import com.teamanotador.gamesbreak.repositories.GenreRepository
 import com.teamanotador.gamesbreak.repositories.UserRepository
-import data.User
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tv_main_usuario: TextView
-    private lateinit var iv_main_profile: ImageView
+    private lateinit var tvMainUsuario: TextView
+    private lateinit var ivMainProfile: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initRecyclerView()
         initRecyclerViewGenre()
-        tv_main_usuario = findViewById(R.id.tv_main_usuario)
-        iv_main_profile = findViewById(R.id.iv_main_profile)
+        tvMainUsuario = findViewById(R.id.tv_main_usuario)
+        ivMainProfile = findViewById(R.id.iv_main_profile)
 
-        val idUsuario = intent.getLongExtra("idUsuario", 0)
+        val idUsuario = intent.getLongExtra(resources.getString(R.string.intent_id_usuario), 0)
         val usuario: User? = UserRepository.getById(idUsuario)
-        tv_main_usuario.text = usuario?.name
+        tvMainUsuario.text = usuario?.name
         Picasso.get()
             .load(usuario?.profilePicture)
             .placeholder(R.drawable.user_placeholder)
             .error(R.drawable.user_placeholder)
-            .into(iv_main_profile)
+            .into(ivMainProfile)
     }
 
     private fun onGameSelected(game: Game) {
         val intent: Intent = Intent(this, GameActivity::class.java)
-        intent.putExtra("gameId", game.id)
+        intent.putExtra(resources.getString(R.string.game_id), game.id)
         startActivity(intent)
     }
 

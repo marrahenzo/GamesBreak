@@ -14,7 +14,7 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-        val gameId = intent.getLongExtra("gameId", 0)
+        val gameId = intent.getLongExtra(resources.getString(R.string.game_id), 0)
         renderizarInfoJuego(gameId)
         val buttonCompra = findViewById<Button>(R.id.botonComprar);
 
@@ -44,7 +44,7 @@ class GameActivity : AppCompatActivity() {
 
     private fun mostrarPopUp(gameId: Long) {
         val bundle = Bundle()
-        bundle.putLong("gameId", gameId);
+        bundle.putLong(resources.getString(R.string.game_id), gameId);
         val popUp = PopUpCompra()
         popUp.arguments = bundle
         popUp.show((this).supportFragmentManager, "show popup")

@@ -1,6 +1,6 @@
 package com.teamanotador.gamesbreak.repositories
 
-import data.User
+import com.teamanotador.gamesbreak.data.User
 
 object UserRepository {
 

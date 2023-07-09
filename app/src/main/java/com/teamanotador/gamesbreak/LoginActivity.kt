@@ -8,28 +8,28 @@ import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var btn_login: Button
-    private lateinit var et_usuario: EditText
-    private lateinit var et_password: EditText
+    private lateinit var btnLogin: Button
+    private lateinit var etUsuario: EditText
+    private lateinit var etPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        et_usuario = findViewById(R.id.et_login_usuario)
-        et_password = findViewById(R.id.et_login_password)
-        btn_login = findViewById(R.id.btn_login)
+        etUsuario = findViewById(R.id.et_login_usuario)
+        etPassword = findViewById(R.id.et_login_password)
+        btnLogin = findViewById(R.id.btn_login)
 
-        btn_login.setOnClickListener {
-            var usuarioLogueado = LoginUtils.login(
-                et_usuario.text.toString().trim(),
-                et_password.text.toString().trim(),
+        btnLogin.setOnClickListener {
+            val usuarioLogueado = LoginUtils.login(
+                etUsuario.text.toString().trim(),
+                etPassword.text.toString().trim(),
                 applicationContext
             )
 
             if (usuarioLogueado != null) {
                 val intent: Intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("idUsuario", usuarioLogueado.id)
+                intent.putExtra(resources.getString(R.string.intent_id_usuario), usuarioLogueado.id)
                 startActivity(intent)
             }
         }

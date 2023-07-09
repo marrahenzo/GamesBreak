@@ -9,37 +9,24 @@ import androidx.fragment.app.DialogFragment
 import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.repositories.GameRepository
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class PopUpCompra : DialogFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.pop_up_compra, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val gameId = arguments?.getLong("gameId")
+        val gameId = arguments?.getLong(resources.getString(R.string.game_id))
         val subtotal = view.findViewById<TextView>(R.id.subtotal)
         val total = view.findViewById<TextView>(R.id.total)
-        if(gameId != null){
-            val game =  GameRepository.getById(gameId)
-            subtotal.setText(game.getPriceFormateado())
-            total.setText(game.getPriceFormateado())
-
+        if (gameId != null) {
+            val game = GameRepository.getById(gameId)
+            subtotal.text = game.getPriceFormateado()
+            total.text = game.getPriceFormateado()
         }
-
-
-
     }
-
-    private fun getDataGame (){
-
-    }
-
 }

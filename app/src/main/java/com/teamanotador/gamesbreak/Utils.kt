@@ -1,9 +1,9 @@
 package com.teamanotador.gamesbreak
 
+import com.teamanotador.gamesbreak.data.User
 import com.teamanotador.gamesbreak.repositories.UserRepository
-import data.User
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
 
 object Utils {
     fun formatMonto(monto: Double?): String = String.format("%.2f", monto)
