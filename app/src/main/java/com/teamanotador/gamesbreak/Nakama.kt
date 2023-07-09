@@ -1,12 +1,12 @@
 package com.teamanotador.gamesbreak
 
-import data.Game
+import com.teamanotador.gamesbreak.data.Game
+import com.teamanotador.gamesbreak.repositories.PurchaseRepository
 import data.Purchase
 import data.User
 import exceptions.SaldoInsuficienteException
-import com.teamanotador.gamesbreak.repositories.PurchaseRepository
 import java.time.LocalDate
-import java.util.*
+import java.util.Date
 
 const val SABADO = "SATURDAY"
 const val DOMINGO = "SUNDAY"
@@ -23,7 +23,8 @@ class Nakama : Intermediario() {
         }
         val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
         user.efectuarTransaccion(totalAPagar)
-        return Purchase(idCompra, user.id, game.id, totalAPagar,
+        return Purchase(
+            idCompra, user.id, game.id, totalAPagar,
             Utils.mostrarDateComoCadena(Date())
         )
     }

@@ -1,6 +1,6 @@
 package com.teamanotador.gamesbreak
 
-import data.Game
+import com.teamanotador.gamesbreak.data.Game
 import data.Purchase
 import data.User
 

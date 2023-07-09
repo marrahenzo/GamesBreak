@@ -7,18 +7,20 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.teamanotador.gamesbreak.R
-import data.Game
+import com.teamanotador.gamesbreak.data.Game
 
 class GameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     val game = view.findViewById<TextView>(R.id.name)
     val genre = view.findViewById<TextView>(R.id.genre)
     val image = view.findViewById<ImageView>(R.id.image)
-    val navButton: Button = view.findViewById<Button>(R.id.button_navigator)
+    val navButton = view.findViewById<Button>(R.id.button_navigator)
+    val rating = view.findViewById<TextView>(R.id.tv_game_calificacion)
 
     fun render(gameModel: Game, onClickListener: (Game) -> Unit) {
         game.text = gameModel.name
         genre.text = gameModel.genre.nombre
+        rating.text = gameModel.rating.toString()
 
         Picasso.get()
             .load(gameModel.permalink)
