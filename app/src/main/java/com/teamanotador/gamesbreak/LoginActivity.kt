@@ -2,28 +2,22 @@ package com.teamanotador.gamesbreak
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.teamanotador.gamesbreak.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var btnLogin: Button
-    private lateinit var etUsuario: EditText
-    private lateinit var etPassword: EditText
+    private lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        etUsuario = findViewById(R.id.et_login_usuario)
-        etPassword = findViewById(R.id.et_login_password)
-        btnLogin = findViewById(R.id.btn_login)
-
-        btnLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             val usuarioLogueado = LoginUtils.login(
-                etUsuario.text.toString().trim(),
-                etPassword.text.toString().trim(),
+                binding.etLoginUsuario.text.toString().trim(),
+                binding.etLoginPassword.text.toString().trim(),
                 applicationContext
             )
 

@@ -1,45 +1,39 @@
 package com.teamanotador.gamesbreak
 
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
+import com.teamanotador.gamesbreak.databinding.ActivityGameBinding
 import com.teamanotador.gamesbreak.fragments.PopUpCompra
 import com.teamanotador.gamesbreak.repositories.GameRepository
 
 class GameActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityGameBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_game)
+        binding = ActivityGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val gameId = intent.getLongExtra(resources.getString(R.string.game_id), 0)
         renderizarInfoJuego(gameId)
-        val buttonCompra = findViewById<Button>(R.id.botonComprar);
 
-        buttonCompra.setOnClickListener { mostrarPopUp(gameId) }
+        binding.botonComprar.setOnClickListener { mostrarPopUp(gameId) }
     }
 
     private fun renderizarInfoJuego(gameId: Long): Unit {
         val game = GameRepository.getById(gameId)
-        val titulo = findViewById<TextView>(R.id.tv_main_generos)
-        val portada = findViewById<ImageView>(R.id.portadaJuego)
-        val genero = findViewById<TextView>(R.id.generoJuego)
-        val descripcion = findViewById<TextView>(R.id.descripcionJuego)
-        val precio = findViewById<TextView>(R.id.precioJuego)
-        val rating = findViewById<TextView>(R.id.tv_game_calificacion)
 
-        titulo.text = game.name
-        genero.text = game.genre.nombre
-        descripcion.text = game.description
-        precio.text = game.getPriceFormateado()
-        rating.text = game.rating.toString()
+        binding.tvMainGeneros.text = game.name
+        binding.generoJuego.text = game.genre.nombre
+        binding.descripcionJuego.text = game.description
+        binding.precioJuego.text = game.getPriceFormateado()
+        binding.tvGameCalificacion.text = game.rating.toString()
         Picasso.get()
             .load(game.permalink)
             .placeholder(R.drawable.game_placeholder)
             .error(R.drawable.game_placeholder)
-            .into(portada)
+            .into(binding.portadaJuego)
     }
 
     private fun mostrarPopUp(gameId: Long) {
