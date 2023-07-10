@@ -20,27 +20,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initRecyclerView()
+        val idUser = intent.getLongExtra(resources.getString(R.string.usuario_id), 0)
+        val user: User = UserRepository.getById(idUser)
 
-        val idUsuario = intent.getLongExtra(resources.getString(R.string.intent_id_usuario), 0)
-        val usuario: User? = UserRepository.getById(idUsuario)
-        binding.tvMainUsuario.text = usuario?.name
+        initRecyclerView(user)
+        binding.tvMainUsuario.text = user.name
         Picasso.get()
-            .load(usuario?.profilePicture)
+            .load(user.profilePicture)
             .placeholder(R.drawable.user_placeholder)
             .error(R.drawable.user_placeholder)
             .into(binding.ivMainProfile)
     }
 
-    private fun onGameSelected(game: Game) {
+    private fun onGameSelected(game: Game, user: User) {
         val intent = Intent(this, GameActivity::class.java)
         intent.putExtra(resources.getString(R.string.game_id), game.id)
+        intent.putExtra(
+            resources.getString(R.string.usuario_id),
+            user.id
+        )
         startActivity(intent)
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(user: User) {
         binding.rvMainGames.layoutManager = LinearLayoutManager(this)
         binding.rvMainGames.adapter =
-            GameAdapter(GameRepository.get()) { game -> onGameSelected(game) }
+            GameAdapter(GameRepository.get()) { game -> onGameSelected(game, user) }
     }
 }

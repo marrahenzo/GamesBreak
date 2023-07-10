@@ -4,10 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.fragment.app.DialogFragment
+import com.teamanotador.gamesbreak.EpicGames
+import com.teamanotador.gamesbreak.Nakama
 import com.teamanotador.gamesbreak.R
+import com.teamanotador.gamesbreak.Steam
 import com.teamanotador.gamesbreak.databinding.PopUpCompraBinding
 import com.teamanotador.gamesbreak.repositories.GameRepository
+import com.teamanotador.gamesbreak.repositories.UserRepository
 
 class PopUpCompra : DialogFragment() {
 
@@ -16,7 +21,7 @@ class PopUpCompra : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = PopUpCompraBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -24,10 +29,24 @@ class PopUpCompra : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val gameId = arguments?.getLong(resources.getString(R.string.game_id))
+        val userId = arguments?.getLong(resources.getString(R.string.usuario_id))!!
+        //TODO ver de no usar !!
         if (gameId != null) {
             val game = GameRepository.getById(gameId)
+            val user = UserRepository.getById(userId)
             binding.subtotal.text = game.getPriceFormateado()
             binding.total.text = game.getPriceFormateado()
+
+            binding.popupBtnComprar.setOnClickListener {
+                val idSeleccionado = binding.rgIntermediario.checkedRadioButtonId
+                val textoBotonSeleccionado =
+                    binding.rgIntermediario.findViewById<RadioButton>(idSeleccionado).text
+                when (textoBotonSeleccionado) {
+                    "Steam" -> Steam.comprar(game, user)
+                    "Epic Games" -> EpicGames.comprar(game, user)
+                    "Nakama" -> Nakama.comprar(game, user)
+                }
+            }
         }
     }
 }

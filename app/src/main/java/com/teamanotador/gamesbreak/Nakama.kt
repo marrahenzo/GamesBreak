@@ -11,7 +11,7 @@ import java.util.Date
 const val SABADO = "SATURDAY"
 const val DOMINGO = "SUNDAY"
 
-class Nakama : Intermediario {
+object Nakama : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
         val fechaActual: LocalDate = LocalDate.now()
         val comision =

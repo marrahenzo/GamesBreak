@@ -1,5 +1,6 @@
 package com.teamanotador.gamesbreak
 
+import android.util.Log
 import com.teamanotador.gamesbreak.data.Game
 import com.teamanotador.gamesbreak.data.Purchase
 import com.teamanotador.gamesbreak.data.User
@@ -9,8 +10,9 @@ import java.util.Date
 
 const val COMISION = 1.02
 
-class Steam : Intermediario {
+object Steam : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
+        Log.d(user.money.toString(), "guita del usuario")
         val totalAPagar: Double = game.price.times(COMISION)
 
         if (user.money < totalAPagar) {
@@ -18,6 +20,10 @@ class Steam : Intermediario {
         }
         val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
         user.efectuarTransaccion(totalAPagar)
+
+        Log.d(user.money.toString(), "guita del usuario")
+        //TODO sacar
+
         return Purchase(
             idCompra, user.id, game.id, totalAPagar,
             Utils.mostrarDateComoCadena(Date())

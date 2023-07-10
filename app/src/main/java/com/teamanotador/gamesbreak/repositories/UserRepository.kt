@@ -85,8 +85,8 @@ object UserRepository {
         return this.users
     }
 
-    fun getById(userId: Long): User? {
-        return users.firstOrNull { it.id == userId }
+    fun getById(userId: Long): User {
+        return users.first { it.id == userId }
     }
 
 //    fun login(): User {

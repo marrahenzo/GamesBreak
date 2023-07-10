@@ -13,7 +13,7 @@ const val MINUTO_INICIO = 0
 const val HORA_FIN = 23
 const val MINUTO_FIN = 59
 
-class EpicGames : Intermediario {
+object EpicGames : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
         val hora1 = LocalTime.of(HORA_INICIO, MINUTO_INICIO)
         val hora2 = LocalTime.of(HORA_FIN, MINUTO_FIN)

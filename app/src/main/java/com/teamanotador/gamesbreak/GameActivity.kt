@@ -16,9 +16,10 @@ class GameActivity : AppCompatActivity() {
         binding = ActivityGameBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val gameId = intent.getLongExtra(resources.getString(R.string.game_id), 0)
+        val userId = intent.getLongExtra(resources.getString(R.string.usuario_id), 0)
         renderizarInfoJuego(gameId)
 
-        binding.botonComprar.setOnClickListener { mostrarPopUp(gameId) }
+        binding.btnComprar.setOnClickListener { mostrarPopUp(gameId, userId) }
         binding.ivBotonVolver.setOnClickListener { finish() }
     }
 
@@ -37,9 +38,10 @@ class GameActivity : AppCompatActivity() {
             .into(binding.portadaJuego)
     }
 
-    private fun mostrarPopUp(gameId: Long) {
+    private fun mostrarPopUp(gameId: Long, userId: Long) {
         val bundle = Bundle()
-        bundle.putLong(resources.getString(R.string.game_id), gameId);
+        bundle.putLong(resources.getString(R.string.game_id), gameId)
+        bundle.putLong(resources.getString(R.string.usuario_id), userId)
         val popUp = PopUpCompra()
         popUp.arguments = bundle
         popUp.show((this).supportFragmentManager, "show popup")

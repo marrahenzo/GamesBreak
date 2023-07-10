@@ -178,7 +178,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                 <Button
-                    android:id="@+id/botonComprar"
+                    android:id="@+id/btn_comprar"
                     android:layout_width="155dp"
                     android:layout_height="55dp"
                     android:text="@string/game_comprar"

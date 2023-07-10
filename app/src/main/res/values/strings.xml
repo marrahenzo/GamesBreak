@@ -8,7 +8,7 @@
     <string name="login_contrasena_placeholder">Contraseña</string>
     <string name="login_boton">Ingresar</string>
     <string name="login_error">Usuario o contraseña incorrectos.</string>
-    <string name="intent_id_usuario">idUsuario</string>
+    <string name="usuario_id">idUsuario</string>
 
     <!-- MAIN -->
 
