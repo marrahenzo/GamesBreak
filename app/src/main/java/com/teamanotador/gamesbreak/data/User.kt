@@ -1,8 +1,10 @@
 package com.teamanotador.gamesbreak.data
 
+import java.text.NumberFormat
 import java.time.LocalDate
 import java.time.Period
 import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 data class User(
     val id: Long,
@@ -35,6 +37,11 @@ data class User(
         val cashback = this.calcularCashback()
         this.money = this.money.minus(importe)
         this.money = this.money.plus((importe.times(cashback)))
+    }
+
+    fun mostrarMoneyFormateada():String {
+        val currencyFormat = NumberFormat.getCurrencyInstance(Locale("es", "AR"))
+        return currencyFormat.format(this.money)
     }
 
     override fun toString(): String {

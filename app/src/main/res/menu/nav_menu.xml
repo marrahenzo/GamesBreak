@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_boton_inicio"
+            android:title="Inicio"
+            />
+        <item
+            android:id="@+id/menu_boton_config"
+            android:title="Configuracion"
+            />
+        <item
+            android:id="@+id/menu_boton_info"
+            android:title="Sobre la app"
+            />
+    </group>
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/menu_boton_log_out"
+                android:title="Cerrar sesion"
+                />
+        </menu>
+    </item>
+</menu>

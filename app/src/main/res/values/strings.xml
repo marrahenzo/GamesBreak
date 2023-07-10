@@ -16,6 +16,8 @@
     <string name="main_buscar">Buscar</string>
     <string name="main_generos">Géneros</string>
     <string name="main_juegos">Todos los juegos</string>
+    <string name="navigation_open">Open</string>
+    <string name="navigation_close">Close</string>
 
     <!-- JUEGO -->
 
@@ -36,4 +38,5 @@
     <string name="compra_recargo">Recargo</string>
     <string name="compra_total">Total</string>
     <string name="compra_confirmar">CONFIRMAR COMPRA</string>
+
 </resources>

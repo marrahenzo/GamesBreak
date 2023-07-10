@@ -21,4 +21,8 @@ class GameAdapter(private val gamesList: List<Game>, private val onClickListener
     override fun getItemCount(): Int {
         return this.gamesList.size
     }
+
+    fun actualizarDataList(){
+        this.notifyDataSetChanged()
+    }
 }

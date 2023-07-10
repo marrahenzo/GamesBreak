@@ -282,4 +282,7 @@ object GameRepository {
             throw JuegoInexistenteException("El juego con id $id no existe")
         }
     }
+    fun getGamesByNameContains(text: String): List<Game> {
+        return games.filter { it.name.contains(text, ignoreCase = true) }
+    }
 }

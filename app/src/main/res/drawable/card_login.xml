@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo del LinearLayout -->
+    <item>
+        <shape>
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+    <!-- Sombra -->
+    <item>
+        <shape>
+            <solid android:color="#20000000" /> <!-- Color y transparencia de la sombra -->
+            <corners android:radius="12dp" />
+        </shape>
+    </item>
+
+</layer-list>
