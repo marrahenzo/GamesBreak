@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
             if (usuarioLogueado != null) {
                 val intent: Intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra(resources.getString(R.string.intent_id_usuario), usuarioLogueado.id)
                 startActivity(intent)
             }
