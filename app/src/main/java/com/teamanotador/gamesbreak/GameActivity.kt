@@ -19,6 +19,7 @@ class GameActivity : AppCompatActivity() {
         renderizarInfoJuego(gameId)
 
         binding.botonComprar.setOnClickListener { mostrarPopUp(gameId) }
+        binding.ivBotonVolver.setOnClickListener { finish() }
     }
 
     private fun renderizarInfoJuego(gameId: Long): Unit {
