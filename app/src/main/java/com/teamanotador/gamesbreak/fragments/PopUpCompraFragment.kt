@@ -8,6 +8,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.teamanotador.gamesbreak.EpicGames
+import com.teamanotador.gamesbreak.Intermediario
 import com.teamanotador.gamesbreak.Nakama
 import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.Steam
@@ -37,6 +38,7 @@ class PopUpCompra : DialogFragment() {
         if (gameId != null) {
             val game = GameRepository.getById(gameId)
             val user = UserRepository.getById(userId)
+            var intermediario: Intermediario? = null
             binding.subtotal.text = game.getPriceFormateado()
             binding.descuento.text = user.calcularCashback().toString()
 
@@ -47,42 +49,27 @@ class PopUpCompra : DialogFragment() {
                     "Steam" -> {
                         binding.comision.text = Steam.obtenerComision(game).toString()
                         binding.total.text = Steam.obtenerTotal(game, user).toString()
+                        intermediario = Steam
                     }
 
                     "Epic Games" -> {
                         binding.comision.text = EpicGames.obtenerComision(game).toString()
                         binding.total.text = EpicGames.obtenerTotal(game, user).toString()
+                        intermediario = EpicGames
                     }
 
                     "Nakama" -> {
                         binding.comision.text = Nakama.obtenerComision(game).toString()
                         binding.total.text = Nakama.obtenerTotal(game, user).toString()
+                        intermediario = Nakama
                     }
                 }
             }
 
             binding.popupBtnComprar.setOnClickListener {
-                val idSeleccionado = binding.rgIntermediario.checkedRadioButtonId
-                val textoBotonSeleccionado =
-                    binding.rgIntermediario.findViewById<RadioButton>(idSeleccionado)?.text
-                if (textoBotonSeleccionado != null) {
+                if (intermediario != null) {
                     try {
-                        val compra = when (textoBotonSeleccionado) {
-                            "Steam" -> {
-                                Steam.comprar(game, user)
-                            }
-
-                            "Epic Games" -> {
-                                EpicGames.comprar(game, user)
-                            }
-
-                            "Nakama" -> {
-                                Nakama.comprar(game, user)
-                            }
-
-                            else -> null
-                        }
-
+                        val compra = intermediario!!.comprar(game, user)
                         PurchaseRepository.add(compra!!)
                         Toast.makeText(activity, R.string.compra_exitosa, Toast.LENGTH_SHORT)
                             .show()
@@ -93,7 +80,7 @@ class PopUpCompra : DialogFragment() {
                             .show()
                     }
                 } else
-                    Toast.makeText(activity, "no se eligio intermediario", Toast.LENGTH_SHORT)
+                    Toast.makeText(activity, R.string.compra_error, Toast.LENGTH_SHORT)
                         .show()
             }
         }
