@@ -22,7 +22,7 @@ class GameAdapter(private val gamesList: List<Game>, private val onClickListener
         return this.gamesList.size
     }
 
-    fun actualizarDataList(){
+    fun actualizarDataList() {
         this.notifyDataSetChanged()
     }
 }

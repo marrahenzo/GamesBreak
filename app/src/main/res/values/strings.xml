@@ -38,5 +38,11 @@
     <string name="compra_recargo">Recargo</string>
     <string name="compra_total">Total</string>
     <string name="compra_confirmar">CONFIRMAR COMPRA</string>
+    <string name="compra_exitosa">Compra realizada</string>
+    <string name="compra_error">Seleccione un intermediario</string>
 
+    <!-- MENU -->
+    <string name="menu_inicio">Inicio</string>
+    <string name="menu_historial">Historial</string>
+    <string name="menu_logout">Cerrar sesión</string>
 </resources>

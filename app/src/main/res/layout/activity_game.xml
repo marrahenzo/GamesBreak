@@ -27,7 +27,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/botonBack"
+                    android:id="@+id/iv_boton_volver"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_margin="10dp"
@@ -42,14 +42,14 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Juego"
+                    android:text="@string/game_juego"
                     android:textColor="@color/white"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/botonBack"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_boton_volver"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/botonBack" />
+                    app:layout_constraintTop_toTopOf="@+id/iv_boton_volver" />
 
                 <io.github.florent37.shapeofview.shapes.RoundRectView
                     android:id="@+id/imageView11"
@@ -99,12 +99,12 @@
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_main_generos"
-                    app:layout_constraintEnd_toStartOf="@+id/calificacion"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_game_calificacion"
                     app:layout_constraintTop_toTopOf="@+id/tv_main_generos"
                     app:srcCompat="@drawable/ic_star" />
 
                 <TextView
-                    android:id="@+id/calificacion"
+                    android:id="@+id/tv_game_calificacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="12dp"
-                    android:text="Descripcion"
+                    android:text="@string/game_descripcion"
                     android:textColor="@color/white2"
                     android:textSize="14dp"
                     android:textStyle="bold"
@@ -159,7 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:text="Precio"
+                    android:text="@string/game_precio"
                     android:textColor="@color/white2"
                     android:textSize="14dp"
                     android:textStyle="bold"
@@ -179,10 +179,10 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                 <Button
-                    android:id="@+id/botonComprar"
+                    android:id="@+id/btn_comprar"
                     android:layout_width="155dp"
                     android:layout_height="55dp"
-                    android:text="Comprar"
+                    android:text="@string/game_comprar"
                     android:background="@drawable/button"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="@+id/precioJuego"

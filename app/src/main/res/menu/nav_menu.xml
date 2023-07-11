@@ -7,24 +7,17 @@
         android:checkableBehavior="single">
         <item
             android:id="@+id/menu_boton_inicio"
-            android:title="Inicio"
-            />
+            android:title="@string/menu_inicio" />
         <item
             android:id="@+id/menu_boton_config"
-            android:title="Configuracion"
-            />
-        <item
-            android:id="@+id/menu_boton_info"
-            android:title="Sobre la app"
-            />
+            android:title="@string/menu_historial" />
     </group>
     <item
         android:title="">
         <menu>
             <item
                 android:id="@+id/menu_boton_log_out"
-                android:title="Cerrar sesion"
-                />
+                android:title="@string/menu_logout" />
         </menu>
     </item>
 </menu>

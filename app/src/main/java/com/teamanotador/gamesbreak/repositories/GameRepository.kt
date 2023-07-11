@@ -18,8 +18,7 @@ object GameRepository {
                 Genero.SURVIVAL_HORROR,
                 350.50,
                 5.0,
-                "https://media.vandal.net/m/67022/resident-evil-4-20193420315720_1.jpg",
-                listOf()
+                "https://media.vandal.net/m/67022/resident-evil-4-20193420315720_1.jpg"
             )
         )
         games.add(
@@ -31,8 +30,7 @@ object GameRepository {
                 Genero.SANDBOX,
                 150.75,
                 5.0,
-                "https://www.proandroid.com/wp-content/uploads/2016/12/minecraft.jpg",
-                listOf()
+                "https://www.proandroid.com/wp-content/uploads/2016/12/minecraft.jpg"
             )
         )
         games.add(
@@ -44,8 +42,7 @@ object GameRepository {
                 Genero.DEPORTE,
                 1800.00,
                 1.0,
-                "https://sm.ign.com/ign_es/screenshot/default/image002-1_3te9.jpg",
-                listOf()
+                "https://sm.ign.com/ign_es/screenshot/default/image002-1_3te9.jpg"
             )
         )
         games.add(
@@ -57,8 +54,7 @@ object GameRepository {
                 Genero.SURVIVAL_HORROR,
                 70.00,
                 4.5,
-                "https://m.media-amazon.com/images/I/91AQS6et4QL._AC_UF894,1000_QL80_.jpg",
-                listOf()
+                "https://m.media-amazon.com/images/I/91AQS6et4QL._AC_UF894,1000_QL80_.jpg"
             )
         )
         games.add(
@@ -70,8 +66,7 @@ object GameRepository {
                 Genero.SHOOTER,
                 600.00,
                 4.0,
-                "https://cdn.game.tv/game-tv-content/images_3/41666c262d8f858a9ebe021ac4dbadb5/41666c262d8f858a9ebe021ac4dbadb5/GameTile.jpg",
-                listOf()
+                "https://cdn.game.tv/game-tv-content/images_3/41666c262d8f858a9ebe021ac4dbadb5/41666c262d8f858a9ebe021ac4dbadb5/GameTile.jpg"
             )
         )
         games.add(
@@ -83,8 +78,7 @@ object GameRepository {
                 Genero.PELEA,
                 315.50,
                 4.7,
-                "https://as01.epimg.net/meristation/imagenes/2019/01/10/noticias/1547149102_234157_1547149165_noticia_normal.jpg",
-                listOf()
+                "https://as01.epimg.net/meristation/imagenes/2019/01/10/noticias/1547149102_234157_1547149165_noticia_normal.jpg"
             )
         )
         games.add(
@@ -96,8 +90,7 @@ object GameRepository {
                 Genero.SURVIVAL_HORROR,
                 8500.00,
                 3.5,
-                "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png",
-                listOf()
+                "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png"
             )
         )
         games.add(
@@ -109,8 +102,7 @@ object GameRepository {
                 Genero.CARRERAS,
                 800.00,
                 4.2,
-                "https://edicion.parentesis.com:8082/imagesPosts/gt00.jpg",
-                listOf()
+                "https://edicion.parentesis.com:8082/imagesPosts/gt00.jpg"
             )
         )
         games.add(
@@ -122,8 +114,7 @@ object GameRepository {
                 Genero.AVENTURA,
                 210.20,
                 2.5,
-                "https://juegosdigitalesargentina.com/files/images/productos/1639183282-pokemon-lets-go-pikachu-nintendo-switch.jpg",
-                listOf()
+                "https://juegosdigitalesargentina.com/files/images/productos/1639183282-pokemon-lets-go-pikachu-nintendo-switch.jpg"
             )
         )
         games.add(
@@ -135,8 +126,7 @@ object GameRepository {
                 Genero.ACCION,
                 1800.00,
                 4.8,
-                "https://media.vandal.net/m/3903/2005610224436_1.jpg",
-                listOf()
+                "https://media.vandal.net/m/3903/2005610224436_1.jpg"
             )
         )
         games.add(
@@ -148,8 +138,7 @@ object GameRepository {
                 Genero.CARRERAS,
                 6500.00,
                 4.6,
-                "https://media.vandal.net/m/45256/mario-kart-8-deluxe-201742811181_45.jpg",
-                listOf()
+                "https://media.vandal.net/m/45256/mario-kart-8-deluxe-201742811181_45.jpg"
             )
         )
         games.add(
@@ -161,8 +150,7 @@ object GameRepository {
                 Genero.ACCION,
                 50.75,
                 4.9,
-                "https://as.com/meristation/imagenes/2020/04/07/game_cover/136602131586253551.jpg",
-                listOf()
+                "https://as.com/meristation/imagenes/2020/04/07/game_cover/136602131586253551.jpg"
             )
         )
         games.add(
@@ -174,8 +162,7 @@ object GameRepository {
                 Genero.AVENTURA,
                 5350.00,
                 4.0,
-                "https://assets-prd.ignimgs.com/2022/07/25/9781506733494-1658716557072.jpg",
-                listOf()
+                "https://assets-prd.ignimgs.com/2022/07/25/9781506733494-1658716557072.jpg"
             )
         )
         games.add(
@@ -187,8 +174,7 @@ object GameRepository {
                 Genero.RPG,
                 150.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/6198391-kingdom-hearts-ii-playstation-2-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/6198391-kingdom-hearts-ii-playstation-2-front-cover.jpg"
             )
         )
         games.add(
@@ -200,8 +186,7 @@ object GameRepository {
                 Genero.ACCION,
                 10.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/3620172-bloodborne-playstation-4-other.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/3620172-bloodborne-playstation-4-other.jpg"
             )
         )
         games.add(
@@ -213,8 +198,7 @@ object GameRepository {
                 Genero.ACCION,
                 20.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/8507229-sekiro-shadows-die-twice-xbox-one-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/8507229-sekiro-shadows-die-twice-xbox-one-front-cover.jpg"
             )
         )
         games.add(
@@ -226,8 +210,7 @@ object GameRepository {
                 Genero.ACCION,
                 30.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/10371758-elden-ring-xbox-one-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/10371758-elden-ring-xbox-one-front-cover.jpg"
             )
         )
         games.add(
@@ -239,8 +222,7 @@ object GameRepository {
                 Genero.AVENTURA,
                 40.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/4317156-shadow-of-the-colossus-playstation-2-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/4317156-shadow-of-the-colossus-playstation-2-front-cover.jpg"
             )
         )
         games.add(
@@ -252,8 +234,7 @@ object GameRepository {
                 Genero.JRPG,
                 50.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/8842019-persona-5-royal-playstation-4-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/8842019-persona-5-royal-playstation-4-front-cover.jpg"
             )
         )
         games.add(
@@ -265,8 +246,7 @@ object GameRepository {
                 Genero.PUZZLE,
                 60.00,
                 5.0,
-                "https://cdn.mobygames.com/covers/6296552-portal-2-windows-front-cover.jpg",
-                listOf()
+                "https://cdn.mobygames.com/covers/6296552-portal-2-windows-front-cover.jpg"
             )
         )
     }
@@ -282,6 +262,7 @@ object GameRepository {
             throw JuegoInexistenteException("El juego con id $id no existe")
         }
     }
+
     fun getGamesByNameContains(text: String): List<Game> {
         return games.filter { it.name.contains(text, ignoreCase = true) }
     }
