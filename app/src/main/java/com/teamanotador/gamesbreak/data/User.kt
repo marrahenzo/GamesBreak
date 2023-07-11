@@ -14,7 +14,7 @@ data class User(
     val createdDate: String,
     val profilePicture: String
 ) {
-    private fun calcularCashback(): Double {
+    fun calcularCashback(): Double {
         var cashback = 0.0
 
         val fechaStr = createdDate
@@ -32,9 +32,7 @@ data class User(
     }
 
     fun efectuarTransaccion(importe: Double) {
-        val cashback = this.calcularCashback()
         this.money = this.money.minus(importe)
-        this.money = this.money.plus((importe.times(cashback)))
     }
 
     override fun toString(): String {

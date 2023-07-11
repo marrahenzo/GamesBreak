@@ -12,8 +12,7 @@ data class Game(
     val genre: Genero,
     val price: Double,
     val rating: Double,
-    val permalink: String,
-    val photos: List<String>
+    val permalink: String
 ) {
     override fun toString(): String {
         return "$id - $name - $${String.format("%.2f", price)} - $genre - $releaseDate"

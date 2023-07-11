@@ -1,6 +1,5 @@
 package com.teamanotador.gamesbreak
 
-import android.util.Log
 import com.teamanotador.gamesbreak.data.Game
 import com.teamanotador.gamesbreak.data.Purchase
 import com.teamanotador.gamesbreak.data.User
@@ -8,21 +7,17 @@ import com.teamanotador.gamesbreak.exceptions.SaldoInsuficienteException
 import com.teamanotador.gamesbreak.repositories.PurchaseRepository
 import java.util.Date
 
-const val COMISION = 1.02
+const val COMISION = 0.02
 
 object Steam : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
-        Log.d(user.money.toString(), "guita del usuario")
-        val totalAPagar: Double = game.price.times(COMISION)
+        val totalAPagar: Double = obtenerTotal(game, user)
 
         if (user.money < totalAPagar) {
-            throw SaldoInsuficienteException("Saldo de ${user.money} insuficiente para pagar $totalAPagar")
+            throw SaldoInsuficienteException("Saldo de ${Utils.formatMonto(user.money)} insuficiente")
         }
         val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
         user.efectuarTransaccion(totalAPagar)
-
-        Log.d(user.money.toString(), "guita del usuario")
-        //TODO sacar
 
         return Purchase(
             idCompra, user.id, game.id, totalAPagar,
@@ -30,4 +25,11 @@ object Steam : Intermediario {
         )
     }
 
+    override fun obtenerComision(game: Game): Double {
+        return game.price.times(COMISION)
+    }
+
+    override fun obtenerTotal(game: Game, user: User): Double {
+        return game.price.plus(obtenerComision(game)).minus(user.calcularCashback())
+    }
 }

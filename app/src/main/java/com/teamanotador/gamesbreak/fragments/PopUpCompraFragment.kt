@@ -5,13 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.teamanotador.gamesbreak.EpicGames
+import com.teamanotador.gamesbreak.Intermediario
 import com.teamanotador.gamesbreak.Nakama
 import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.Steam
+import com.teamanotador.gamesbreak.Utils
 import com.teamanotador.gamesbreak.databinding.PopUpCompraBinding
+import com.teamanotador.gamesbreak.exceptions.SaldoInsuficienteException
 import com.teamanotador.gamesbreak.repositories.GameRepository
+import com.teamanotador.gamesbreak.repositories.PurchaseRepository
 import com.teamanotador.gamesbreak.repositories.UserRepository
 
 class PopUpCompra : DialogFragment() {
@@ -34,18 +39,54 @@ class PopUpCompra : DialogFragment() {
         if (gameId != null) {
             val game = GameRepository.getById(gameId)
             val user = UserRepository.getById(userId)
+            var intermediario: Intermediario? = null
             binding.subtotal.text = game.getPriceFormateado()
-            binding.total.text = game.getPriceFormateado()
+            binding.descuento.text = Utils.mostrarMoneyFormateada(user.calcularCashback())
+
+            binding.rgIntermediario.setOnCheckedChangeListener { _, i ->
+                when (binding.rgIntermediario.findViewById<RadioButton>(i).text) {
+                    "Steam" -> {
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(Steam.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(Steam.obtenerTotal(game, user))
+                        intermediario = Steam
+                    }
+
+                    "Epic Games" -> {
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(EpicGames.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(EpicGames.obtenerTotal(game, user))
+                        intermediario = EpicGames
+                    }
+
+                    "Nakama" -> {
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(Nakama.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(Nakama.obtenerTotal(game, user))
+                        intermediario = Nakama
+                    }
+                }
+            }
 
             binding.popupBtnComprar.setOnClickListener {
-                val idSeleccionado = binding.rgIntermediario.checkedRadioButtonId
-                val textoBotonSeleccionado =
-                    binding.rgIntermediario.findViewById<RadioButton>(idSeleccionado).text
-                when (textoBotonSeleccionado) {
-                    "Steam" -> Steam.comprar(game, user)
-                    "Epic Games" -> EpicGames.comprar(game, user)
-                    "Nakama" -> Nakama.comprar(game, user)
-                }
+                if (intermediario != null) {
+                    try {
+                        val compra = intermediario!!.comprar(game, user)
+                        PurchaseRepository.add(compra!!)
+                        Toast.makeText(activity, R.string.compra_exitosa, Toast.LENGTH_SHORT)
+                            .show()
+                        activity?.supportFragmentManager?.beginTransaction()?.remove(this)
+                            ?.commit()
+                    } catch (exception: SaldoInsuficienteException) {
+                        Toast.makeText(activity, exception.message, Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                } else
+                    Toast.makeText(activity, R.string.compra_error, Toast.LENGTH_SHORT)
+                        .show()
             }
         }
     }
