@@ -128,36 +128,6 @@
                     android:layout_marginRight="14dp"
                     tools:layout_editor_absoluteX="12dp" />
 
-                <!--
-                <TextView
-                    android:id="@+id/tv_main_generos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="12dp"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="@string/main_generos"
-                    android:textColor="@color/white"
-                    android:textSize="24dp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/recyclerView"
-                    tools:ignore="MissingConstraints" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_main_generos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginEnd="14dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_main_generos" />
-                -->
-
                 <TextView
                     android:id="@+id/tv_main_games"
                     android:layout_width="wrap_content"
@@ -165,10 +135,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
                     android:text="@string/main_juegos"
                     android:textColor="@color/white"
-                    android:textSize="24dp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/recyclerView"

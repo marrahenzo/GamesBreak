@@ -28,10 +28,10 @@
                 android:text="@string/compra_intermediario"
                 android:textColor="@color/white"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/rg_intermediario"
-                tools:layout_editor_absoluteY="16dp"
 
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
                 android:id="@+id/rg_intermediario"

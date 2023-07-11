@@ -5,5 +5,5 @@ data class Purchase(
     val userId: Long,
     val gameId: Long,
     val amount: Double,
-    val createdDate: String,
+    val createdDate: String
 )

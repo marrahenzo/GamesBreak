@@ -34,4 +34,13 @@ object PurchaseRepository {
     fun obtenerUltimoId(): Long {
         return purchases.maxBy { it.id }.id
     }
+
+    fun getByUserId(id: Long): List<Purchase> {
+        var comprasDelUsuario = mutableListOf<Purchase>()
+        for (purchase in purchases) {
+            if (purchase.userId == id)
+                comprasDelUsuario.add(purchase)
+        }
+        return comprasDelUsuario
+    }
 }

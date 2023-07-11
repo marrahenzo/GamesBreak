@@ -79,6 +79,18 @@ object UserRepository {
                 "https://images.pexels.com/photos/16808856/pexels-photo-16808856/free-photo-of-dark-photo-of-a-mans-head.jpeg"
             )
         )
+        users.add(
+            User(
+                9999L,
+                "dios",
+                "",
+                "Dios",
+                "Dios",
+                999.99,
+                "2023/07/11",
+                "https://images.pexels.com/photos/16808856/pexels-photo-16808856/free-photo-of-dark-photo-of-a-mans-head.jpeg"
+            )
+        )
     }
 
     fun getUsers(): List<User> {
