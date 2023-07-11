@@ -9,6 +9,7 @@
     <string name="login_boton">Ingresar</string>
     <string name="login_error">Usuario o contraseña incorrectos.</string>
     <string name="usuario_id">idUsuario</string>
+    <string name="login_leyenda">Iniciar sesión</string>
 
     <!-- MAIN -->
 

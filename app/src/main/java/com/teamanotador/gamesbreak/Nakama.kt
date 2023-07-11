@@ -31,7 +31,7 @@ object Nakama : Intermediario {
     override fun obtenerComision(game: Game): Double {
         val fechaActual: LocalDate = LocalDate.now()
         return if (fechaActual.dayOfWeek.name == SABADO || fechaActual.dayOfWeek.name == DOMINGO)
-            game.price.times(COMISION_MENOR_NAKAMA) else game.price.times(COMISION_MAYOR_NAKAMA)
+            game.price.times(COMISION_MAYOR_NAKAMA) else game.price.times(COMISION_MENOR_NAKAMA)
     }
 
     override fun obtenerTotal(game: Game, user: User): Double {

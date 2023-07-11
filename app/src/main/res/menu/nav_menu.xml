@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    >
-
-    <group
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/menu_boton_inicio"
-            android:title="@string/menu_inicio" />
-        <item
-            android:id="@+id/menu_boton_config"
-            android:title="@string/menu_historial" />
-    </group>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="">
-        <menu>
-            <item
-                android:id="@+id/menu_boton_log_out"
-                android:title="@string/menu_logout" />
-        </menu>
-    </item>
+        android:id="@+id/menu_boton_inicio"
+        android:title="@string/menu_inicio" />
+    <item
+        android:id="@+id/menu_boton_config"
+        android:title="@string/menu_historial" />
+    <item
+        android:id="@+id/menu_boton_log_out"
+        android:title="@string/menu_logout" />
 </menu>

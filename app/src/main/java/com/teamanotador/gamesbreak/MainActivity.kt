@@ -52,6 +52,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .error(R.drawable.user_placeholder)
             .into(binding.ivMainProfile)
         initNavBar(user)
+
+        binding.ivMainProfile.setOnClickListener {
+            val intent: Intent = Intent(this, HistoryActivity::class.java)
+            intent.putExtra(resources.getString(R.string.usuario_id), user.id)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
@@ -84,7 +90,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         recyclerViewBusqueda.adapter =
             GameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
-        //buscarJuego(et_main_search, recyclerView.adapter as GameAdapter)
+        buscarJuego(binding.etMainSearch)
     }
 
     private fun buscarJuego(editText: EditText) {
