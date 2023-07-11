@@ -28,9 +28,10 @@
 
                 <ImageView
                     android:id="@+id/iv_boton_volver"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_margin="10dp"
+                    android:padding="4dp"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/circle_light"
                     app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/game_juego"
                     android:textColor="@color/white"
-                    android:textSize="16dp"
+                    android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_boton_volver"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -182,6 +183,8 @@
                     android:layout_width="155dp"
                     android:layout_height="55dp"
                     android:text="@string/game_comprar"
+                    android:background="@drawable/button"
+                    android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="@+id/precioJuego"
                     app:layout_constraintEnd_toEndOf="@+id/descripcionJuego"
                     app:layout_constraintTop_toTopOf="@+id/precioJuego" />
