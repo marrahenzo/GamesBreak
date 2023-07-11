@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
 import com.squareup.picasso.Picasso
 import com.teamanotador.gamesbreak.adapter.GameAdapter
+import com.teamanotador.gamesbreak.adapter.SearchGameAdapter
 import com.teamanotador.gamesbreak.data.Game
 import com.teamanotador.gamesbreak.data.User
 import com.teamanotador.gamesbreak.databinding.ActivityMainBinding
@@ -43,7 +44,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val user: User = UserRepository.getById(idUser)
 
         initRecyclerViewBusquedaJuego(user)
-        buscarJuego(binding.etMainSearch)
+
+
         initRecyclerView(user)
         binding.tvMainUsuario.text = user.name
         Picasso.get()
@@ -86,27 +88,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun initRecyclerViewBusquedaJuego(user: User) {
         recyclerViewBusqueda = findViewById(R.id.recyclerView)
+        val adapter =  SearchGameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
+        recyclerViewBusqueda.adapter = adapter
         recyclerViewBusqueda.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
-        recyclerViewBusqueda.adapter =
-            GameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
-        buscarJuego(binding.etMainSearch)
-    }
 
-    private fun buscarJuego(editText: EditText) {
-        val textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun afterTextChanged(s: Editable?) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                Log.i("Texto ingresado", s.toString())
-                //TODO sacar
-                listaJuegosFiltrados =
-                    GameRepository.getGamesByNameContains(s.toString()) as MutableList<Game>
-                recyclerViewBusqueda.adapter?.notifyDataSetChanged()
-            }
-        }
-        editText.addTextChangedListener(textWatcher)
+        buscarJuego(binding.etMainSearch, adapter)
     }
 
     private fun initNavBar(usuario: User?) {
@@ -143,7 +130,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .into(imgUsuarioMenu)
 
     }
-
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
@@ -156,4 +142,25 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Log.d(item.itemId.toString(), "asdasd")
         return true
     }
+
+    private fun buscarJuego(editText: EditText, adapter: SearchGameAdapter) {
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                listaJuegosFiltrados.clear()
+                if(s.toString() == ""){
+                    listaJuegosFiltrados.addAll(mutableListOf<Game>())
+                }else {
+                    val listaTemp =
+                        GameRepository.getGamesByNameContains(s.toString()) as MutableList<Game>
+                    listaJuegosFiltrados.addAll(listaTemp)
+                }
+                adapter.actualizarDataList(listaJuegosFiltrados.size)
+            }
+        }
+        editText.addTextChangedListener(textWatcher)
+    }
+
 }

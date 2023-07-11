@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_rounded"
+        android:padding="8dp"
+        android:layout_marginRight="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <io.github.florent37.shapeofview.shapes.RoundRectView
+            android:id="@+id/roundRectView"
+            android:layout_width="140dp"
+            android:layout_height="170dp"
+            android:elevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_roundRect_bottomLeftRadius="12dp"
+            app:shape_roundRect_bottomRightRadius="12dp"
+            app:shape_roundRect_topLeftRadius="12dp"
+            app:shape_roundRect_topRightRadius="12dp">
+
+            <ImageView
+                android:id="@+id/iv_game_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/game" />
+
+        </io.github.florent37.shapeofview.shapes.RoundRectView>
+
+        <TextView
+            android:id="@+id/tv_nombre_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="nombre juego"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/roundRectView"
+            app:layout_constraintTop_toBottomOf="@+id/roundRectView" />
+
+        <TextView
+            android:id="@+id/tv_categoria_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="categoria"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_nombre_game"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nombre_game" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_categoria_game"
+            app:layout_constraintEnd_toStartOf="@+id/tv_game_calificacion"
+            app:layout_constraintTop_toTopOf="@+id/tv_categoria_game"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/tv_game_calificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(5.0)"
+            android:textColor="@color/white2"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        <Button
+            android:id="@+id/button_navigator"
+            android:layout_width="154dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/button"
+            android:text="Ver juego"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:padding="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_categoria_game" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

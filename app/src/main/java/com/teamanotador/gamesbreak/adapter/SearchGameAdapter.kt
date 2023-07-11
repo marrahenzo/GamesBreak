@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.data.Game
 
-class GameAdapter(private val gamesList: List<Game>, private val onClickListener: (Game) -> Unit) :
-    RecyclerView.Adapter<GameViewHolder>() {
+class SearchGameAdapter(private val gamesList: List<Game>, private val onClickListener: (Game) -> Unit) :
+    RecyclerView.Adapter<SearchGameViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GameViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchGameViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return GameViewHolder(layoutInflater.inflate(R.layout.game_item, parent, false))
+        return SearchGameViewHolder(layoutInflater.inflate(R.layout.search_game_item, parent, false))
     }
 
-    override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SearchGameViewHolder, position: Int) {
         holder.render(gamesList[position], onClickListener)
     }
 
