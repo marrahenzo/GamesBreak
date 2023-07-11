@@ -19,7 +19,7 @@ object Utils {
         return UserRepository.getUsers().firstOrNull { it.id == userId }
     }
 
-    fun mostrarMoneyFormateada(cantidad: String): String {
+    fun mostrarMoneyFormateada(cantidad: Double?): String {
         val currencyFormat = NumberFormat.getCurrencyInstance(Locale("es", "AR"))
         return currencyFormat.format(cantidad)
     }

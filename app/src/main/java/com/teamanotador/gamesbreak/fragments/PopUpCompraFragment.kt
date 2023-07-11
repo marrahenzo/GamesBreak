@@ -12,6 +12,7 @@ import com.teamanotador.gamesbreak.Intermediario
 import com.teamanotador.gamesbreak.Nakama
 import com.teamanotador.gamesbreak.R
 import com.teamanotador.gamesbreak.Steam
+import com.teamanotador.gamesbreak.Utils
 import com.teamanotador.gamesbreak.databinding.PopUpCompraBinding
 import com.teamanotador.gamesbreak.exceptions.SaldoInsuficienteException
 import com.teamanotador.gamesbreak.repositories.GameRepository
@@ -40,27 +41,31 @@ class PopUpCompra : DialogFragment() {
             val user = UserRepository.getById(userId)
             var intermediario: Intermediario? = null
             binding.subtotal.text = game.getPriceFormateado()
-            binding.descuento.text = user.calcularCashback().toString()
+            binding.descuento.text = Utils.mostrarMoneyFormateada(user.calcularCashback())
 
-            binding.rgIntermediario.setOnCheckedChangeListener { radioGroup, i ->
-                val textoBotonSeleccionado =
-                    binding.rgIntermediario.findViewById<RadioButton>(i).text
-                when (textoBotonSeleccionado) {
+            binding.rgIntermediario.setOnCheckedChangeListener { _, i ->
+                when (binding.rgIntermediario.findViewById<RadioButton>(i).text) {
                     "Steam" -> {
-                        binding.comision.text = Steam.obtenerComision(game).toString()
-                        binding.total.text = Steam.obtenerTotal(game, user).toString()
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(Steam.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(Steam.obtenerTotal(game, user))
                         intermediario = Steam
                     }
 
                     "Epic Games" -> {
-                        binding.comision.text = EpicGames.obtenerComision(game).toString()
-                        binding.total.text = EpicGames.obtenerTotal(game, user).toString()
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(EpicGames.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(EpicGames.obtenerTotal(game, user))
                         intermediario = EpicGames
                     }
 
                     "Nakama" -> {
-                        binding.comision.text = Nakama.obtenerComision(game).toString()
-                        binding.total.text = Nakama.obtenerTotal(game, user).toString()
+                        binding.comision.text =
+                            Utils.mostrarMoneyFormateada(Nakama.obtenerComision(game))
+                        binding.total.text =
+                            Utils.mostrarMoneyFormateada(Nakama.obtenerTotal(game, user))
                         intermediario = Nakama
                     }
                 }
