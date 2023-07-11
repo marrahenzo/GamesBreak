@@ -10,16 +10,15 @@ import java.util.Date
 
 const val SABADO = "SATURDAY"
 const val DOMINGO = "SUNDAY"
+const val COMISION_MENOR_NAKAMA = 0.0075
+const val COMISION_MAYOR_NAKAMA = 0.03
 
 object Nakama : Intermediario {
     override fun comprar(game: Game, user: User): Purchase {
-        val fechaActual: LocalDate = LocalDate.now()
-        val comision =
-            if (fechaActual.dayOfWeek.name == SABADO || fechaActual.dayOfWeek.name == DOMINGO) 1.03 else 1.0075
-        val totalAPagar: Double = game.price.times(comision)
+        val totalAPagar: Double = obtenerTotal(game, user)
 
         if (user.money < totalAPagar) {
-            throw SaldoInsuficienteException("Saldo de ${user.money} insuficiente para pagar $totalAPagar")
+            throw SaldoInsuficienteException("Saldo de ${Utils.formatMonto(user.money)} insuficiente")
         }
         val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
         user.efectuarTransaccion(totalAPagar)
@@ -29,4 +28,13 @@ object Nakama : Intermediario {
         )
     }
 
+    override fun obtenerComision(game: Game): Double {
+        val fechaActual: LocalDate = LocalDate.now()
+        return if (fechaActual.dayOfWeek.name == SABADO || fechaActual.dayOfWeek.name == DOMINGO)
+            game.price.times(COMISION_MENOR_NAKAMA) else game.price.times(COMISION_MAYOR_NAKAMA)
+    }
+
+    override fun obtenerTotal(game: Game, user: User): Double {
+        return game.price.plus(obtenerComision(game)).minus(user.calcularCashback())
+    }
 }

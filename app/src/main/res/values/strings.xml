@@ -36,4 +36,5 @@
     <string name="compra_recargo">Recargo</string>
     <string name="compra_total">Total</string>
     <string name="compra_confirmar">CONFIRMAR COMPRA</string>
+    <string name="compra_exitosa">"Compra realizada"</string>
 </resources>
