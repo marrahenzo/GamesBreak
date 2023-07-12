@@ -53,7 +53,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .placeholder(R.drawable.user_placeholder)
             .error(R.drawable.user_placeholder)
             .into(binding.ivMainProfile)
-        initNavBar(user)
+
+        initNavBar(user, savedInstanceState)
 
         binding.ivMainProfile.setOnClickListener {
             val intent: Intent = Intent(this, HistoryActivity::class.java)
@@ -96,7 +97,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         buscarJuego(binding.etMainSearch, adapter)
     }
 
-    private fun initNavBar(usuario: User?) {
+    private fun initNavBar(usuario: User?, savedInstanceState: Bundle?) {
         val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -108,7 +109,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.string.navigation_open,
             R.string.navigation_close
         )
-
         drawer.addDrawerListener(toggle)
         supportActionBar?.title = ""
 
@@ -129,6 +129,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .error(R.drawable.user_placeholder)
             .into(imgUsuarioMenu)
 
+        if(savedInstanceState == null){
+            navigationView.setCheckedItem(R.id.menu_boton_inicio)
+        }
+
     }
 
     override fun onBackPressed() {
@@ -140,7 +144,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        Log.d(item.itemId.toString(), "asdasd")
+        when(item.itemId){
+            R.id.menu_boton_inicio -> {}
+            R.id.menu_boton_config -> {
+                val intent = Intent(this, HistoryActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.menu_boton_log_out -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+            }
+        }
         return true
     }
 
