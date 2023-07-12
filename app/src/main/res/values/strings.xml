@@ -19,6 +19,7 @@
     <string name="main_juegos">Todos los juegos</string>
     <string name="navigation_open">Open</string>
     <string name="navigation_close">Close</string>
+    <string name="main_nombre_placeholder">Nombre usuario</string>
 
     <!-- JUEGO -->
 
@@ -27,6 +28,12 @@
     <string name="game_precio">Precio</string>
     <string name="game_comprar">Comprar</string>
     <string name="game_id">gameId</string>
+    <string name="game_placeholder_nombre">Nombre del Juego</string>
+    <string name="game_placeholder_genero">Genero</string>
+    <string name="game_placeholder_lorem">Vestibulum quis pellentesque orci. In tempus et metus vitae pretium. Ut sed odio at odio accumsan hendrerit sit amet sit amet lacus. Pellentesque dictum consectetur tortor non ullamcorper. Sed et neque tristique dolor maximus commodo. Sed vel purus ac ipsum luctus iaculis</string>
+    <string name="game_placeholder_precio">$ 00,00</string>
+    <string name="game_placeholder_rating">(5.0)</string>
+    <string name="game_boton_ver">Ver juego</string>
 
     <!-- COMPRA -->
     <string name="compra_intermediario">Seleccione un intermediario</string>
@@ -41,9 +48,20 @@
     <string name="compra_confirmar">CONFIRMAR COMPRA</string>
     <string name="compra_exitosa">Compra realizada</string>
     <string name="compra_error">Seleccione un intermediario</string>
+    <string name="compra_monto">$ 0,00</string>
 
     <!-- MENU -->
     <string name="menu_inicio">Inicio</string>
     <string name="menu_historial">Historial</string>
     <string name="menu_logout">Cerrar sesión</string>
+
+    <!-- NAV -->
+    <string name="nav_usuario">Nombre de usuario</string>
+    <string name="nav_saldo">Saldo: $0,00</string>
+
+    <!-- HISTORIAL -->
+    <string name="historial_fecha">Fecha de compra</string>
+    <string name="historial_moneda">$</string>
+    <string name="historial_monto">Monto</string>
+
 </resources>

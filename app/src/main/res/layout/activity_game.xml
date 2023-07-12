@@ -40,7 +40,7 @@
                     app:srcCompat="@drawable/ic_back" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/tv_game_titulo_top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/game_juego"
@@ -62,7 +62,7 @@
                     android:elevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_titulo_top"
                     app:shape_roundRect_bottomLeftRadius="14dp"
 
                     app:shape_roundRect_bottomRightRadius="14dp"
@@ -71,7 +71,7 @@
                     app:srcCompat="@drawable/game">
 
                     <ImageView
-                        android:id="@+id/portadaJuego"
+                        android:id="@+id/iv_game_portada"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
@@ -81,27 +81,27 @@
 
 
                 <TextView
-                    android:id="@+id/tv_main_generos"
+                    android:id="@+id/tv_game_titulo"
                     android:layout_width="215dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="20dp"
                     android:inputType="textPersonName"
-                    android:text="Nombre del Juego"
+                    android:text="@string/game_placeholder_nombre"
                     android:textColor="@color/white"
-                    android:textSize="24dp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/imageView11"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/iv_game_estrella"
                     android:layout_width="18dp"
                     android:layout_height="18dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_main_generos"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_game_titulo"
                     app:layout_constraintEnd_toStartOf="@+id/tv_game_calificacion"
-                    app:layout_constraintTop_toTopOf="@+id/tv_main_generos"
+                    app:layout_constraintTop_toTopOf="@+id/tv_game_titulo"
                     app:srcCompat="@drawable/ic_star" />
 
                 <TextView
@@ -109,75 +109,75 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:text="(5.0)"
+                    android:text="@string/game_placeholder_rating"
                     android:textColor="@color/white2"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_game_estrella"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+                    app:layout_constraintTop_toTopOf="@+id/iv_game_estrella" />
 
                 <TextView
-                    android:id="@+id/generoJuego"
+                    android:id="@+id/tv_game_genero"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:text="Genero"
+                    android:text="@string/game_placeholder_genero"
                     android:textColor="@color/white2"
-                    android:textSize="14dp"
-                    app:layout_constraintStart_toStartOf="@+id/tv_main_generos"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_main_generos" />
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="@+id/tv_game_titulo"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_titulo" />
 
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/tv_game_descripcion_titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="12dp"
                     android:text="@string/game_descripcion"
                     android:textColor="@color/white2"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/generoJuego" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_genero" />
 
                 <TextView
-                    android:id="@+id/descripcionJuego"
+                    android:id="@+id/tv_game_descripcion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="22dp"
                     android:text="Vestibulum quis pellentesque orci. In tempus et metus vitae pretium. Ut sed odio at odio accumsan hendrerit sit amet sit amet lacus. Pellentesque dictum consectetur tortor non ullamcorper. Sed et neque tristique dolor maximus commodo. Sed vel purus ac ipsum luctus iaculis"
                     android:textColor="@color/white2"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/textView17"
-                    app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_game_descripcion_titulo"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_descripcion_titulo" />
 
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/tv_game_precio_titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="@string/game_precio"
                     android:textColor="@color/white2"
-                    android:textSize="14dp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/descripcionJuego"
-                    app:layout_constraintTop_toBottomOf="@+id/descripcionJuego" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_game_descripcion"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_descripcion" />
 
                 <TextView
-                    android:id="@+id/precioJuego"
+                    android:id="@+id/tv_game_precio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="$ 00,00"
+                    android:text="@string/game_placeholder_precio"
                     android:textColor="@color/white2"
-                    android:textSize="24dp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/textView19"
-                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                    app:layout_constraintStart_toStartOf="@+id/tv_game_precio_titulo"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_game_precio_titulo" />
 
                 <Button
                     android:id="@+id/btn_comprar"
@@ -186,9 +186,9 @@
                     android:text="@string/game_comprar"
                     android:background="@drawable/button"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/precioJuego"
-                    app:layout_constraintEnd_toEndOf="@+id/descripcionJuego"
-                    app:layout_constraintTop_toTopOf="@+id/precioJuego" />
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_game_precio"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_game_descripcion"
+                    app:layout_constraintTop_toTopOf="@+id/tv_game_precio" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>

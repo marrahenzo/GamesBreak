@@ -101,25 +101,7 @@ object UserRepository {
         return users.first { it.id == userId }
     }
 
-//    fun login(): User {
-//        var usuario: String?
-//        var password: String?
-//        var usuarioEncontrado: User?
-//        var usuarioLogueado: User? = null
-//        println("-----INICIO DE SESIÓN-----")
-//        do {
-//            print("Ingrese el usuario: ")
-//            usuario = readln()
-//            print("Ingrese la contraseña: ")
-//            password = readln()
-//
-//            usuarioEncontrado = users.firstOrNull { it.nickName == usuario }
-//            if (usuarioEncontrado?.password == password) {
-//                println("Usuario logueado correctamente.")
-//                usuarioLogueado = usuarioEncontrado
-//            } else
-//                println("Nombre de usuario o contraseña incorrecta.")
-//        } while (usuarioLogueado == null)
-//        return usuarioLogueado
-//    }
+    fun getByName(name: String): User? {
+        return users.firstOrNull { it.nickName == name }
+    }
 }

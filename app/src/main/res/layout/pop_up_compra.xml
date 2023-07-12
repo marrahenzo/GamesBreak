@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tv_intermediario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/compra_intermediario"
@@ -41,7 +41,7 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5">
+                app:layout_constraintTop_toBottomOf="@+id/tv_intermediario">
 
                 <RadioButton
                     android:id="@+id/rb_steam"
@@ -66,13 +66,13 @@
             </RadioGroup>
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/tv_resumen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/compra_resumen"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -80,92 +80,92 @@
                 app:layout_constraintTop_toBottomOf="@+id/rg_intermediario" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_subtotal_leyenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/compra_subtotal"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_resumen" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/tv_descuento_leyenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/compra_descuento"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView6"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintStart_toStartOf="@+id/tv_subtotal_leyenda"
+                app:layout_constraintTop_toBottomOf="@+id/tv_subtotal_leyenda" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tv_recargo_leyenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/compra_recargo"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+                app:layout_constraintStart_toStartOf="@+id/tv_descuento_leyenda"
+                app:layout_constraintTop_toBottomOf="@+id/tv_descuento_leyenda" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/tv_total_leyenda"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/compra_total"
                 android:textColor="@color/white"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                app:layout_constraintStart_toStartOf="@+id/tv_recargo_leyenda"
+                app:layout_constraintTop_toBottomOf="@+id/tv_recargo_leyenda" />
 
             <TextView
-                android:id="@+id/subtotal"
+                android:id="@+id/tv_subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$ 0,00"
+                android:text="@string/compra_monto"
                 android:textColor="@color/white2"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
+                app:layout_constraintTop_toTopOf="@+id/tv_subtotal_leyenda" />
 
             <TextView
-                android:id="@+id/descuento"
+                android:id="@+id/tv_descuento"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$ 0,00"
+                android:text="@string/compra_monto"
                 android:textColor="@color/white2"
-                android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/subtotal"
-                app:layout_constraintTop_toTopOf="@+id/textView8" />
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_subtotal"
+                app:layout_constraintTop_toTopOf="@+id/tv_descuento_leyenda" />
 
             <TextView
-                android:id="@+id/comision"
+                android:id="@+id/tv_comision"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$ 0,00"
+                android:text="@string/compra_monto"
                 android:textColor="@color/white2"
-                android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/descuento"
-                app:layout_constraintTop_toTopOf="@+id/textView11" />
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_descuento"
+                app:layout_constraintTop_toTopOf="@+id/tv_recargo_leyenda" />
 
             <TextView
-                android:id="@+id/total"
+                android:id="@+id/tv_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$ 0,00"
+                android:text="@string/compra_monto"
                 android:textColor="@color/white2"
-                android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/comision"
-                app:layout_constraintTop_toTopOf="@+id/textView12" />
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_comision"
+                app:layout_constraintTop_toTopOf="@+id/tv_total_leyenda" />
 
             <Button
                 android:id="@+id/popup_btn_comprar"
@@ -173,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
                 android:text="@string/compra_confirmar"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/tv_total_leyenda"
                 tools:layout_editor_absoluteX="0dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

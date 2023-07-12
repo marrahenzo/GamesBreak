@@ -87,8 +87,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun initRecyclerViewBusquedaJuego(user: User) {
-        recyclerViewBusqueda = findViewById(R.id.recyclerView)
-        val adapter =  SearchGameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
+        recyclerViewBusqueda = findViewById(R.id.rv_main_search)
+        val adapter = SearchGameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
         recyclerViewBusqueda.adapter = adapter
         recyclerViewBusqueda.layoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
@@ -130,6 +130,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .into(imgUsuarioMenu)
 
     }
+
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)
@@ -150,9 +151,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 listaJuegosFiltrados.clear()
-                if(s.toString() == ""){
+                if (s.toString() == "") {
                     listaJuegosFiltrados.addAll(mutableListOf<Game>())
-                }else {
+                } else {
                     val listaTemp =
                         GameRepository.getGamesByNameContains(s.toString()) as MutableList<Game>
                     listaJuegosFiltrados.addAll(listaTemp)

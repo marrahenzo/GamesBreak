@@ -21,7 +21,8 @@ object Nakama : Intermediario {
             throw SaldoInsuficienteException("Saldo de ${Utils.formatMonto(user.money)} insuficiente")
         }
         val idCompra = PurchaseRepository.obtenerUltimoId().plus(1)
-        user.efectuarTransaccion(totalAPagar)
+        Utils.efectuarTransaccion(totalAPagar, user)
+
         return Purchase(
             idCompra, user.id, game.id, totalAPagar,
             Utils.mostrarDateComoCadena(Date())
@@ -35,6 +36,7 @@ object Nakama : Intermediario {
     }
 
     override fun obtenerTotal(game: Game, user: User): Double {
-        return game.price.plus(obtenerComision(game)).minus(user.calcularCashback())
+        return game.price.plus(obtenerComision(game))
+            .minus(Utils.calcularCashback(user.createdDate))
     }
 }

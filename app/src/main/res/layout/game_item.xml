@@ -16,7 +16,7 @@
 
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/history_item_image"
+            android:id="@+id/game_item_image"
             android:layout_width="85dp"
             android:layout_height="111dp"
             android:adjustViewBounds="true"
@@ -29,62 +29,62 @@
             app:srcCompat="@drawable/game" />
 
         <TextView
-            android:id="@+id/history_item_name"
+            android:id="@+id/game_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:text="Nombre del juego"
-            android:maxLines="2"
             android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@string/game_placeholder_nombre"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/history_item_image"
-            app:layout_constraintTop_toTopOf="@+id/history_item_image" />
+            app:layout_constraintStart_toEndOf="@+id/game_item_image"
+            app:layout_constraintTop_toTopOf="@+id/game_item_image" />
 
         <TextView
-            android:id="@+id/history_item_date"
+            android:id="@+id/game_item_genre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Categoria"
+            android:text="@string/game_placeholder_genero"
             android:textColor="@color/white2"
-            android:textSize="14dp"
-            app:layout_constraintStart_toStartOf="@+id/history_item_name"
-            app:layout_constraintTop_toBottomOf="@+id/history_item_name" />
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/game_item_name"
+            app:layout_constraintTop_toBottomOf="@+id/game_item_name" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/game_item_estrella"
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/history_item_amount"
-            app:layout_constraintStart_toEndOf="@+id/history_item_image"
-            app:layout_constraintTop_toTopOf="@+id/history_item_amount"
+            app:layout_constraintBottom_toBottomOf="@+id/game_item_rating"
+            app:layout_constraintStart_toEndOf="@+id/game_item_image"
+            app:layout_constraintTop_toTopOf="@+id/game_item_rating"
             app:srcCompat="@drawable/ic_star" />
 
         <TextView
-            android:id="@+id/history_item_amount"
+            android:id="@+id/game_item_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="3dp"
-            android:text="(5.0)"
+            android:text="@string/game_placeholder_rating"
             android:textColor="@color/white2"
-            android:textSize="10dp"
+            android:textSize="10sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/button_navigator"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/button_navigator" />
+            app:layout_constraintBottom_toBottomOf="@+id/btn_game_ver"
+            app:layout_constraintStart_toEndOf="@+id/game_item_estrella"
+            app:layout_constraintTop_toTopOf="@+id/btn_game_ver" />
 
         <Button
-            android:id="@+id/button_navigator"
+            android:id="@+id/btn_game_ver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
+            android:text="@string/game_boton_ver"
             android:textColor="@color/white"
-            android:textSize="12dp"
-            android:text="Ver juego"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

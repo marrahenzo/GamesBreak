@@ -40,31 +40,32 @@ class PopUpCompra : DialogFragment() {
             val game = GameRepository.getById(gameId)
             val user = UserRepository.getById(userId)
             var intermediario: Intermediario? = null
-            binding.subtotal.text = game.getPriceFormateado()
-            binding.descuento.text = Utils.mostrarMoneyFormateada(user.calcularCashback())
+            binding.tvSubtotal.text = Utils.mostrarMoneyFormateada(game.price)
+            binding.tvDescuento.text =
+                Utils.mostrarMoneyFormateada(Utils.calcularCashback(user.createdDate))
 
             binding.rgIntermediario.setOnCheckedChangeListener { _, i ->
                 when (binding.rgIntermediario.findViewById<RadioButton>(i).text) {
                     "Steam" -> {
-                        binding.comision.text =
+                        binding.tvComision.text =
                             Utils.mostrarMoneyFormateada(Steam.obtenerComision(game))
-                        binding.total.text =
+                        binding.tvTotal.text =
                             Utils.mostrarMoneyFormateada(Steam.obtenerTotal(game, user))
                         intermediario = Steam
                     }
 
                     "Epic Games" -> {
-                        binding.comision.text =
+                        binding.tvComision.text =
                             Utils.mostrarMoneyFormateada(EpicGames.obtenerComision(game))
-                        binding.total.text =
+                        binding.tvTotal.text =
                             Utils.mostrarMoneyFormateada(EpicGames.obtenerTotal(game, user))
                         intermediario = EpicGames
                     }
 
                     "Nakama" -> {
-                        binding.comision.text =
+                        binding.tvComision.text =
                             Utils.mostrarMoneyFormateada(Nakama.obtenerComision(game))
-                        binding.total.text =
+                        binding.tvTotal.text =
                             Utils.mostrarMoneyFormateada(Nakama.obtenerTotal(game, user))
                         intermediario = Nakama
                     }
