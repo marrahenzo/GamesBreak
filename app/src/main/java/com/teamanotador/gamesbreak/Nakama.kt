@@ -25,7 +25,7 @@ object Nakama : Intermediario {
 
         return Purchase(
             idCompra, user.id, game.id, totalAPagar,
-            Utils.mostrarDateComoCadena(Date())
+            Utils.mostrarDateComoCadena(Date()), this
         )
     }
 

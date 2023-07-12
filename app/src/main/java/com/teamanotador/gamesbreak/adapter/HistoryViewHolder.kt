@@ -16,11 +16,13 @@ class HistoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val date: TextView = view.findViewById(R.id.history_item_date)
     private val image: ImageView = view.findViewById(R.id.history_item_image)
     private val amount: TextView = view.findViewById(R.id.history_item_amount)
+    private val intermediario: TextView = view.findViewById(R.id.history_item_intermediario)
 
     fun render(purchaseModel: Purchase) {
         game.text = GameRepository.getById(purchaseModel.gameId).name
         date.text = purchaseModel.createdDate
         amount.text = Utils.formatMonto(purchaseModel.amount)
+        intermediario.text = purchaseModel.intermediario.obtenerNombreIntermediario()
 
         Picasso.get()
             .load(GameRepository.getById(purchaseModel.gameId).permalink)

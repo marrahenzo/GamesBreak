@@ -63,5 +63,7 @@
     <string name="historial_fecha">Fecha de compra</string>
     <string name="historial_moneda">$</string>
     <string name="historial_monto">Monto</string>
+    <string name="historial_sin_compras">No hay compras realizadas</string>
+    <string name="historial_intermediario">Intermediario</string>
 
 </resources>

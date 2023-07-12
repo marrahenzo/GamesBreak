@@ -40,32 +40,32 @@ class PopUpCompra : DialogFragment() {
             val game = GameRepository.getById(gameId)
             val user = UserRepository.getById(userId)
             var intermediario: Intermediario? = null
-            binding.tvSubtotal.text = Utils.mostrarMoneyFormateada(game.price)
-            binding.tvDescuento.text =
+            binding.subtotal.text = Utils.mostrarMoneyFormateada(game.price)
+            binding.descuento.text =
                 Utils.mostrarMoneyFormateada(Utils.calcularCashback(user.createdDate))
 
             binding.rgIntermediario.setOnCheckedChangeListener { _, i ->
                 when (binding.rgIntermediario.findViewById<RadioButton>(i).text) {
                     "Steam" -> {
-                        binding.tvComision.text =
+                        binding.comision.text =
                             Utils.mostrarMoneyFormateada(Steam.obtenerComision(game))
-                        binding.tvTotal.text =
+                        binding.total.text =
                             Utils.mostrarMoneyFormateada(Steam.obtenerTotal(game, user))
                         intermediario = Steam
                     }
 
                     "Epic Games" -> {
-                        binding.tvComision.text =
+                        binding.comision.text =
                             Utils.mostrarMoneyFormateada(EpicGames.obtenerComision(game))
-                        binding.tvTotal.text =
+                        binding.total.text =
                             Utils.mostrarMoneyFormateada(EpicGames.obtenerTotal(game, user))
                         intermediario = EpicGames
                     }
 
                     "Nakama" -> {
-                        binding.tvComision.text =
+                        binding.comision.text =
                             Utils.mostrarMoneyFormateada(Nakama.obtenerComision(game))
-                        binding.tvTotal.text =
+                        binding.total.text =
                             Utils.mostrarMoneyFormateada(Nakama.obtenerTotal(game, user))
                         intermediario = Nakama
                     }

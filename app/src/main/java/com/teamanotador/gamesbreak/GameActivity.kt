@@ -26,16 +26,16 @@ class GameActivity : AppCompatActivity() {
     private fun renderizarInfoJuego(gameId: Long): Unit {
         val game = GameRepository.getById(gameId)
 
-        binding.tvGameTitulo.text = game.name
-        binding.tvGameGenero.text = game.genre.nombre
-        binding.tvGameDescripcion.text = game.description
-        binding.tvGamePrecio.text = Utils.mostrarMoneyFormateada(game.price)
+        binding.tvMainGeneros.text = game.name
+        binding.generoJuego.text = game.genre.nombre
+        binding.descripcionJuego.text = game.description
+        binding.precioJuego.text = Utils.mostrarMoneyFormateada(game.price)
         binding.tvGameCalificacion.text = game.rating.toString()
         Picasso.get()
             .load(game.permalink)
             .placeholder(R.drawable.game_placeholder)
             .error(R.drawable.game_placeholder)
-            .into(binding.ivGamePortada)
+            .into(binding.portadaJuego)
     }
 
     private fun mostrarPopUp(gameId: Long, userId: Long) {

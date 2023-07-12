@@ -25,8 +25,11 @@ class HistoryActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView(user: User) {
+        val lista = PurchaseRepository.getByUserId(user.id)
         binding.rvHistorialCompras.layoutManager = LinearLayoutManager(this)
         binding.rvHistorialCompras.adapter =
-            HistoryAdapter(PurchaseRepository.getByUserId(user.id))
+            HistoryAdapter(lista)
+        if (lista.isEmpty())
+            binding.tvHistorialVacio.text = resources.getString(R.string.historial_sin_compras)
     }
 }

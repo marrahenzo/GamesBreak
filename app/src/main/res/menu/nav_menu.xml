@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-   <group>
-       <item
-           android:id="@+id/menu_boton_inicio"
-           android:icon="@drawable/ic_home"
-           android:title="@string/menu_inicio" />
-       <item
-           android:id="@+id/menu_boton_config"
-           android:icon="@drawable/ic_cart"
-           android:title="@string/menu_historial" />
+    <group>
+        <item
+            android:id="@+id/menu_boton_inicio"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_inicio" />
+        <item
+            android:id="@+id/menu_boton_config"
+            android:icon="@drawable/ic_cart"
+            android:title="@string/menu_historial" />
 
-   </group>
+    </group>
     <item
         android:title="">
         <menu>

@@ -58,23 +58,38 @@
             android:id="@+id/history_item_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="8dp"
             android:text="@string/historial_monto"
             android:textColor="@color/white2"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/history_item_moneda"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.835" />
+            app:layout_constraintVertical_bias="0.824" />
+
+        <TextView
+            android:id="@+id/history_item_intermediario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="56dp"
+            android:text="@string/historial_intermediario"
+            android:textColor="@color/white2"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/history_item_amount"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.824" />
 
         <TextView
             android:id="@+id/history_item_moneda"
-            android:layout_width="9dp"
-            android:layout_height="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/historial_moneda"
             android:textColor="@color/white"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/history_item_amount"
             app:layout_constraintStart_toEndOf="@+id/history_item_image"
             app:layout_constraintTop_toTopOf="@+id/history_item_amount" />

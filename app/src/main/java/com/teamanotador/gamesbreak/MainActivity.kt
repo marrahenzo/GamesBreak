@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.ImageView
@@ -88,7 +87,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun initRecyclerViewBusquedaJuego(user: User) {
-        recyclerViewBusqueda = findViewById(R.id.rv_main_search)
+        recyclerViewBusqueda = findViewById(R.id.recyclerView)
         val adapter = SearchGameAdapter(listaJuegosFiltrados) { game -> onGameSelected(game, user) }
         recyclerViewBusqueda.adapter = adapter
         recyclerViewBusqueda.layoutManager =
@@ -129,7 +128,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             .error(R.drawable.user_placeholder)
             .into(imgUsuarioMenu)
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             navigationView.setCheckedItem(R.id.menu_boton_inicio)
         }
 
@@ -144,12 +143,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.menu_boton_inicio -> {}
             R.id.menu_boton_config -> {
                 val intent = Intent(this, HistoryActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.menu_boton_log_out -> {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)

@@ -8,4 +8,7 @@ interface Intermediario {
     fun comprar(game: Game, user: User): Purchase?
     fun obtenerComision(game: Game): Double
     fun obtenerTotal(game: Game, user: User): Double
+    fun obtenerNombreIntermediario(): String {
+        return this::class.simpleName.toString()
+    }
 }
